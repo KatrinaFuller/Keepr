@@ -32,7 +32,12 @@ namespace Keepr.Repositories
 
     public int Create(Keep newKeep)
     {
-      throw new NotImplementedException();
+      string sql = @"
+        INSERT INTO keeps
+        (name, description, img, isPrivate)
+        VALUES
+        (@Name, @Description, @Img, @IsPrivate)";
+      return _db.ExecuteScalar<int>(sql, newKeep);
     }
 
     public void Edit(Keep keep)
