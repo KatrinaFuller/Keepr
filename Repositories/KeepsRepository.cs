@@ -30,5 +30,9 @@ namespace Keepr.Repositories
       throw new NotImplementedException();
     }
 
+    internal void Delete(int id)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

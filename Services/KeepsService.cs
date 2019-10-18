@@ -17,7 +17,7 @@ namespace Keepr.Services
       return _repo.Get();
     }
 
-    public object GetKeepByUser(User user)
+    public Keep GetKeepByUser(User user)
     {
       Keep exists = _repo.GetKeepByUser(user);
       if (exists == null)
@@ -27,7 +27,7 @@ namespace Keepr.Services
       return exists;
     }
 
-    public object GetKeepByKeepId(int id)
+    public Keep GetKeepByKeepId(int id)
     {
       Keep exists = _repo.GetKeepByKeepId(id);
       if (exists == null)
@@ -37,7 +37,7 @@ namespace Keepr.Services
       return exists;
     }
 
-    public object Create(Keep newKeep)
+    public Keep Create(Keep newKeep)
     {
       int id = _repo.Create(newKeep);
       newKeep.Id = id;
@@ -45,7 +45,7 @@ namespace Keepr.Services
 
     }
 
-    public object Edit(Keep editKeep)
+    public Keep Edit(Keep editKeep)
     {
       Keep keep = _repo.GetKeepByKeepId(editKeep.Id);
       if (keep == null)
@@ -60,9 +60,15 @@ namespace Keepr.Services
       return keep;
     }
 
-    public object Delete(int id)
+    public string Delete(int id)
     {
-      throw new NotImplementedException();
+      Keep exists = _repo.GetKeepByKeepId(id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      _repo.Delete(id);
+      return "Keep has been deleted";
     }
 
 
