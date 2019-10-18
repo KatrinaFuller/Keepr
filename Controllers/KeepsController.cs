@@ -29,12 +29,12 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<Keep> GetKeepByUser(string id)
+    [HttpGet("{user}")]
+    public ActionResult<Keep> GetKeepByUser(User user)
     {
       try
       {
-        return Ok(_ks.GetKeepByUser(id));
+        return Ok(_ks.GetKeepByUser(user));
       }
       catch (Exception e)
       {
@@ -69,12 +69,12 @@ namespace Keepr.Controllers
     }
 
     [HttpPut("{id}")]
-    public ActionResult<Keep> Edit([FromBody] Keep newKeep, int id)
+    public ActionResult<Keep> Edit([FromBody] Keep editKeep, int id)
     {
       try
       {
-        newKeep.Id = id;
-        return Ok(_ks.Edit(newKeep));
+        editKeep.Id = id;
+        return Ok(_ks.Edit(editKeep));
       }
       catch (Exception e)
       {
@@ -83,7 +83,7 @@ namespace Keepr.Controllers
     }
 
     [HttpDelete("{id}")]
-    public ActionResult<string> Delete(int id)
+    public ActionResult<int> Delete(int id)
     {
       try
       {

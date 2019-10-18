@@ -1,36 +1,66 @@
 using System;
 using Keepr.Models;
+using Keepr.Repositories;
 
 namespace Keepr.Services
 {
   public class KeepsService
   {
-    internal object Get()
+    public readonly KeepsRepository _repo;
+    public KeepsService(KeepsRepository repo)
     {
-      throw new NotImplementedException();
+      _repo = repo;
     }
 
-    internal object GetKeepByUser(string id)
+    public object Get()
     {
-      throw new NotImplementedException();
+      return _repo.Get();
     }
 
-    internal object GetKeepByKeepId(int id)
+    public object GetKeepByUser(User user)
     {
-      throw new NotImplementedException();
+      Keep exists = _repo.GetKeepByUser(user);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      return exists;
     }
 
-    internal object Create(Keep newKeep)
+    public object GetKeepByKeepId(int id)
     {
-      throw new NotImplementedException();
+      Keep exists = _repo.GetKeepByKeepId(id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      return exists;
     }
 
-    internal object Edit(Keep newKeep)
+    public object Create(Keep newKeep)
     {
-      throw new NotImplementedException();
+      int id = _repo.Create(newKeep);
+      newKeep.Id = id;
+      return newKeep;
+
     }
 
-    internal object Delete(int id)
+    public object Edit(Keep editKeep)
+    {
+      Keep keep = _repo.GetKeepByKeepId(editKeep.Id);
+      if (keep == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      keep.Name = editKeep.Name;
+      keep.Description = editKeep.Description;
+      keep.Img = editKeep.Img;
+      keep.IsPrivate = editKeep.IsPrivate;
+      _repo.Edit(keep);
+      return keep;
+    }
+
+    public object Delete(int id)
     {
       throw new NotImplementedException();
     }
