@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -30,11 +31,12 @@ namespace Keepr.Controllers
     }
 
     [HttpGet("{user}")]
-    public ActionResult<Keep> GetKeepByUser(User user)
+    public ActionResult<Keep> GetKeepByUser(User userId)
     {
       try
       {
-        return Ok(_ks.GetKeepByUser(user));
+        var id = HttpContext.User.FindFirstValue("Id");
+        return Ok(_ks.GetKeepByUser(userId));
       }
       catch (Exception e)
       {

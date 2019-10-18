@@ -19,9 +19,10 @@ namespace Keepr.Repositories
       return _db.Query<Keep>(sql);
     }
 
-    public Keep GetKeepByUser(User user)
+    public Keep GetKeepByUser(int userId)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM keeps WHERE userId = @userId";
+      return _db.QueryFirstOrDefault<Keep>(sql, new { userId });
     }
 
     public Keep GetKeepByKeepId(int id)
