@@ -32,8 +32,7 @@ namespace Keepr.Repositories
 
     public int Create(Keep newKeep)
     {
-      string sql = @"
-      "
+      throw new NotImplementedException();
     }
 
     public void Edit(Keep keep)
