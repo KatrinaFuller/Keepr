@@ -43,7 +43,7 @@ namespace Keepr.Controllers
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Keep> GetKeepByKeepId(string id)
+    public ActionResult<Keep> GetKeepByKeepId(int id)
     {
       try
       {
@@ -69,7 +69,7 @@ namespace Keepr.Controllers
     }
 
     [HttpPut("{id}")]
-    public ActionResult<Keep> Edit([FromBody] Keep newKeep, string id)
+    public ActionResult<Keep> Edit([FromBody] Keep newKeep, int id)
     {
       try
       {
@@ -83,7 +83,7 @@ namespace Keepr.Controllers
     }
 
     [HttpDelete("{id}")]
-    public ActionResult<string> Delete(string id)
+    public ActionResult<string> Delete(int id)
     {
       try
       {

@@ -15,7 +15,7 @@ namespace Keepr.Services
       throw new NotImplementedException();
     }
 
-    internal object GetKeepByKeepId(string id)
+    internal object GetKeepByKeepId(int id)
     {
       throw new NotImplementedException();
     }
@@ -30,7 +30,7 @@ namespace Keepr.Services
       throw new NotImplementedException();
     }
 
-    internal object Delete(string id)
+    internal object Delete(int id)
     {
       throw new NotImplementedException();
     }
