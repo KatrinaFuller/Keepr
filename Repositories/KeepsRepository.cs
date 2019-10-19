@@ -19,7 +19,7 @@ namespace Keepr.Repositories
       return _db.Query<Keep>(sql);
     }
 
-    public Keep GetKeepByUser(int userId)
+    public Keep GetKeepByUserId(string userId)
     {
       string sql = "SELECT * FROM keeps WHERE userId = @userId";
       return _db.QueryFirstOrDefault<Keep>(sql, new { userId });
@@ -35,9 +35,9 @@ namespace Keepr.Repositories
     {
       string sql = @"
         INSERT INTO keeps
-        (name, description, img, isPrivate)
+        (name, description, img, isPrivate, userId)
         VALUES
-        (@Name, @Description, @Img, @IsPrivate)";
+        (@Name, @Description, @Img, @IsPrivate, @UserId)";
       return _db.ExecuteScalar<int>(sql, newKeep);
     }
 

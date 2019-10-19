@@ -17,10 +17,10 @@ namespace Keepr.Services
       return _repo.Get();
     }
 
-    public Keep GetKeepByUser(User userId)
+    public Keep GetKeepByUserId(string userId)
     {
       //possibly check if the user.Id == userId on the Keep model
-      Keep exists = _repo.GetKeepByUser(userId);
+      Keep exists = _repo.GetKeepByUserId(userId);
       if (exists == null)
       {
         throw new Exception("Invalid Id");

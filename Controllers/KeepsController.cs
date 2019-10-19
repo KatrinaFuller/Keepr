@@ -30,13 +30,14 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpGet("{user}")]
-    public ActionResult<Keep> GetKeepByUser(User userId)
+    [HttpGet("user")]
+    public ActionResult<Keep> GetKeepByUserId()
     {
       try
       {
         var id = HttpContext.User.FindFirstValue("Id");
-        return Ok(_ks.GetKeepByUser(userId));
+        // Console.WriteLine($"The user ID is: {id}");
+        return Ok(_ks.GetKeepByUserId(id));
       }
       catch (Exception e)
       {
@@ -62,6 +63,7 @@ namespace Keepr.Controllers
     {
       try
       {
+        newKeep.UserId = HttpContext.User.FindFirstValue("Id");
         return Ok(_ks.Create(newKeep));
       }
       catch (Exception e)
