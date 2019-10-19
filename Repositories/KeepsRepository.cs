@@ -43,7 +43,15 @@ namespace Keepr.Repositories
 
     public void Edit(Keep keep)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      UPDATE keeps
+      SET
+        name = @Name,
+        description = @Description,
+        img = @Img,
+        isPrivate = @IsPrivate
+      WHERE id = @id";
+      _db.Execute(sql, keep);
     }
 
     public void Delete(int id)
