@@ -1,3 +1,5 @@
+-- USE keepr10;
+
 -- CREATE TABLE users (
 --     id VARCHAR(255) NOT NULL,
 --     username VARCHAR(255) NOT NULL,
