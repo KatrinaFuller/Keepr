@@ -56,7 +56,8 @@ namespace Keepr.Repositories
 
     public void Delete(int id)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM keeps WHERE id = @id";
+      _db.Execute(sql, new { id });
     }
   }
 }
