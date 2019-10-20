@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Keepr.Models;
 using Keepr.Repositories;
 
@@ -12,7 +13,7 @@ namespace Keepr.Services
       _repo = repo;
     }
 
-    public object Get()
+    public IEnumerable<Keep> Get()
     {
       return _repo.Get();
     }

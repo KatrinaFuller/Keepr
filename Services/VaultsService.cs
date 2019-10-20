@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Keepr.Models;
 using Keepr.Repositories;
 
@@ -12,10 +13,11 @@ namespace Keepr.Services
       _repo = repo;
     }
 
-    public object Get()
+    public IEnumerable<Vault> Get()
     {
       return _repo.Get();
     }
+
     public object GetVaultByUserId(string userId)
     {
       Vault exists = _repo.GetVaultByUserId(userId);
@@ -51,7 +53,7 @@ namespace Keepr.Services
         throw new Exception("Invalid Id");
       }
       _repo.DeleteVault(id);
-      return "Valut has been deleted";
+      return "Vault has been deleted";
     }
   }
 }

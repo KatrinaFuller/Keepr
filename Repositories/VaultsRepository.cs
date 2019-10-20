@@ -1,26 +1,37 @@
 using System;
+using System.Data;
 using Keepr.Models;
 
 namespace Keepr.Repositories
 {
   public class VaultsRepository
   {
-    internal Vault GetVaultByUserId(string userId)
+    private readonly IDbConnection _db;
+    public VaultsRepository(IDbConnection db)
+    {
+      _db = db;
+    }
+    public object Get()
+    {
+      throw new NotImplementedException();
+    }
+    public Vault GetVaultByUserId(string userId)
     {
       throw new NotImplementedException();
     }
 
-    internal Vault GetVaultById(int id)
+    public Vault GetVaultById(int id)
     {
       throw new NotImplementedException();
     }
 
-    internal int CreateVault(Vault newVault)
+
+    public int CreateVault(Vault newVault)
     {
       throw new NotImplementedException();
     }
 
-    internal void DeleteVault(int id)
+    public void DeleteVault(int id)
     {
       throw new NotImplementedException();
     }
