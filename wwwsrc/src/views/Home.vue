@@ -1,14 +1,18 @@
 <template>
   <div class="home container-fluid">
-    <h1>Welcome Home {{user.username}}</h1>
+    <navbar />
+    <!-- <h1>Welcome Home {{user.username}}</h1>
     <button v-if="user.id" @click="logout">logout</button>
-    <router-link v-else :to="{name: 'login'}">Login</router-link>
+    <router-link v-else :to="{name: 'login'}">Login</router-link>-->
   </div>
 </template>
 
 <script>
+import navbar from "../components/navbar";
+
 export default {
   name: "home",
+  components: { navbar },
   computed: {
     user() {
       return this.$store.state.user;

@@ -55,6 +55,30 @@ export default new Vuex.Store({
       } catch (e) {
         console.warn(e.message)
       }
-    }
+    },
+
+    async loginNav() {
+      try {
+        router.push({ name: "login" })
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async logoutNav({ commit, dispatch }) {
+      try {
+        let success = await AuthService.Logout()
+        if (!success) { }
+        commit('resetState')
+        router.push({ name: "home" })
+      } catch (e) {
+        console.warn(e.message)
+      }
+    },
+
+    usernameButton() {
+      router.push({ name: "profile" })
+    },
+
   }
 })

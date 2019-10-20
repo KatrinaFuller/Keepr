@@ -18,6 +18,13 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-    }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: function () {
+        return import(/* webpackChunkName: "profile" */ './views/Profile.vue')
+      }
+    },
   ]
 })
