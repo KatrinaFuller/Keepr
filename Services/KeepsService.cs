@@ -18,9 +18,9 @@ namespace Keepr.Services
       return _repo.Get();
     }
 
-    public IEnumerable<Keep> GetKeepByUserId(string userId)
+    public IEnumerable<Keep> GetKeepsByUserId(string userId)
     {
-      IEnumerable<Keep> exists = _repo.GetKeepByUserId(userId);
+      IEnumerable<Keep> exists = _repo.GetKeepsByUserId(userId);
       if (exists == null)
       {
         throw new Exception("Invalid Id");

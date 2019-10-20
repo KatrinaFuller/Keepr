@@ -31,13 +31,13 @@ namespace Keepr.Controllers
     }
 
     [HttpGet("user")]
-    public ActionResult<IEnumerable<Keep>> GetKeepByUserId()
+    public ActionResult<IEnumerable<Keep>> GetKeepsByUserId()
     {
       try
       {
         var id = HttpContext.User.FindFirstValue("Id");
         // Console.WriteLine($"The user ID is: {id}");
-        return Ok(_ks.GetKeepByUserId(id));
+        return Ok(_ks.GetKeepsByUserId(id));
       }
       catch (Exception e)
       {
