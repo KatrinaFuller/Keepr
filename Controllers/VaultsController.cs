@@ -17,21 +17,21 @@ namespace Keepr.Controllers
       _vs = vs;
     }
 
-    [HttpGet]
-    public ActionResult<IEnumerable<Vault>> Get()
-    {
-      try
-      {
-        return Ok(_vs.Get());
-      }
-      catch (Exception e)
-      {
-        return BadRequest(e.Message);
-      }
-    }
+    // [HttpGet]
+    // public ActionResult<IEnumerable<Vault>> Get()
+    // {
+    //   try
+    //   {
+    //     return Ok(_vs.Get());
+    //   }
+    //   catch (Exception e)
+    //   {
+    //     return BadRequest(e.Message);
+    //   }
+    // }
 
     [HttpGet]
-    public ActionResult<Vault> GetVaultByUserId()
+    public ActionResult<IEnumerable<Vault>> GetVaultByUserId()
     {
       try
       {
@@ -71,7 +71,7 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public ActionResult<int> DeleteVault(int id)
     {
       try

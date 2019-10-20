@@ -13,14 +13,14 @@ namespace Keepr.Services
       _repo = repo;
     }
 
-    public IEnumerable<Vault> Get()
-    {
-      return _repo.Get();
-    }
+    // public IEnumerable<Vault> Get()
+    // {
+    //   return _repo.Get();
+    // }
 
-    public object GetVaultByUserId(string userId)
+    public IEnumerable<Vault> GetVaultByUserId(string userId)
     {
-      Vault exists = _repo.GetVaultByUserId(userId);
+      IEnumerable<Vault> exists = _repo.GetVaultByUserId(userId);
       if (exists == null)
       {
         throw new Exception("Invalid Id");
