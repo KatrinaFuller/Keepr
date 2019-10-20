@@ -27,7 +27,7 @@ namespace Keepr.Repositories
     public Vault GetVaultById(int id)
     {
       string sql = "SELECT * FROM vaults WHERE id = @id";
-      return _db.QueryFirstOrDefault<Keep>(sql, new { id });
+      return _db.QueryFirstOrDefault<Vault>(sql, new { id });
     }
 
 
