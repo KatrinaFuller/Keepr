@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Services;
@@ -16,12 +17,13 @@ namespace Keepr.Controllers
       _vks = vks;
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<VaultKeep> GetVaultKeepsByVaultId(int id)
+    [HttpGet("{vaultId}")]
+    public ActionResult<VaultKeep> GetVaultKeepsByVaultId(int vaultId)
     {
       try
       {
-        return Ok(_vks.GetVaultKeepsByVaultId(id));
+        // var id = HttpContext.User.FindFirstValue("Id");
+        return Ok(_vks.GetVaultKeepsByVaultId(vaultId));
       }
       catch (Exception e)
       {

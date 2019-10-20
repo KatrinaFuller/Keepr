@@ -12,9 +12,9 @@ namespace Keepr.Services
       _repo = repo;
     }
 
-    public VaultKeep GetVaultKeepsByVaultId(int id)
+    public VaultKeep GetVaultKeepsByVaultId(int vaultId)
     {
-      VaultKeep exists = _repo.GetVaultKeepsByVaultId(id);
+      VaultKeep exists = _repo.GetVaultKeepsByVaultId(vaultId);
       if (exists == null)
       {
         throw new Exception("Invalid Id");

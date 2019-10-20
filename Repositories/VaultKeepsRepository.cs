@@ -13,10 +13,10 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    public VaultKeep GetVaultKeepsByVaultId(int id)
+    public VaultKeep GetVaultKeepsByVaultId(int vaultId)
     {
-      string sql = "SELECT * FROM vaultkeeps WHERE id = @id";
-      return _db.QueryFirstOrDefault<VaultKeep>(sql, new { id });
+      string sql = "SELECT * FROM vaultkeeps WHERE vaultId = @vaultId";
+      return _db.QueryFirstOrDefault<VaultKeep>(sql, new { vaultId });
     }
 
     public int CreateVaultKeep(VaultKeep newVaultKeep)
