@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
+using Dapper;
 using Keepr.Models;
 
 namespace Keepr.Repositories
@@ -11,29 +13,38 @@ namespace Keepr.Repositories
     {
       _db = db;
     }
-    public object Get()
+    public IEnumerable<Vault> Get()
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM  vaults";
+      return _db.Query<Vault>(sql);
     }
     public Vault GetVaultByUserId(string userId)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM vaults WHERE userId = @userId";
+      return _db.QueryFirstOrDefault<Vault>(sql, new { userId });
     }
 
     public Vault GetVaultById(int id)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM vaults WHERE id = @id";
+      return _db.QueryFirstOrDefault<Keep>(sql, new { id });
     }
 
 
     public int CreateVault(Vault newVault)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      INSERT INTO vaults
+      (name, description, userId)
+      VALUES
+      (@Name, @Description, @UserId)";
+      return _db.ExecuteScalar<int>(sql, newVault);
     }
 
     public void DeleteVault(int id)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM values WHERE id = @id";
+      _db.Execute(sql, new { id });
     }
   }
 }
