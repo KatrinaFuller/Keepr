@@ -35,10 +35,16 @@ namespace Keepr.Repositories
     //   _db.Execute(sql, new { id });
     // }
 
-    public void EditVaultKeep(int id)
+    public VaultKeep GetVaultKeepsByVaultIdKeepIdAndUserId(int vaultId, int keepId, string userId)
     {
-      string sql = "DELETE FROM vaultkeeps WHERE id = @id";
-      _db.Execute(sql, new { id });
+      string sql = "SELECT * FROM vaultkeeps WHERE keepId = @keepId and vaultId = @vaultId and userId = @userId";
+      return _db.QueryFirstOrDefault<VaultKeep>(sql, new { vaultId, keepId, userId });
+    }
+
+    public void RemoveVaultKeep(int keepId, int vaultId, string userId)
+    {
+      string sql = "DELETE FROM vaultkeeps WHERE keepId = @keepId and vaultId = @vaultId and userId = @userId";
+      _db.Execute(sql, new { vaultId, keepId, userId });
     }
   }
 }

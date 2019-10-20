@@ -40,14 +40,14 @@ namespace Keepr.Services
     //   return "VaultKeep has been deleted";
     // }
 
-    public string EditVaultKeep(VaultKeep editVaultKeep, string UserId)
+    public string RemoveVaultKeep(int vaultId, int keepId, string userId)
     {
-      VaultKeep vaultKeep = _repo.GetVaultKeepsByVaultId(editVaultKeep.Id);
-      if (vaultKeep == null || vaultKeep.UserId != UserId)
+      VaultKeep vaultKeep = _repo.GetVaultKeepsByVaultIdKeepIdAndUserId(vaultId, keepId, userId);
+      if (vaultKeep == null || vaultKeep.UserId != userId)
       {
-        throw new Exception("Invalid Id");
+        throw new Exception("Invalid Vault Id");
       }
-      _repo.EditVaultKeep(vaultKeep.Id);
+      _repo.RemoveVaultKeep(vaultId, keepId, userId);
       return "Removed VaultKeep";
     }
   }

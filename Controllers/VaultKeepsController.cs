@@ -59,13 +59,12 @@ namespace Keepr.Controllers
     // }
 
     [HttpPut]
-    public ActionResult<VaultKeep> EditVaultKeep([FromBody] VaultKeep editVaultKeep, int id)
+    public ActionResult<string> RemoveVaultKeep([FromBody] VaultKeep vaultKeep)
     {
       try
       {
-        editVaultKeep.Id = id;
         string userId = HttpContext.User.FindFirstValue("Id");
-        return Ok(_vks.EditVaultKeep(editVaultKeep, userId));
+        return Ok(_vks.RemoveVaultKeep(vaultKeep.VaultId, vaultKeep.KeepId, userId));
       }
       catch (Exception e)
       {
