@@ -29,7 +29,13 @@ namespace Keepr.Repositories
       return _db.ExecuteScalar<int>(sql, newVaultKeep);
     }
 
-    public void DeleteVaultKeep(int id)
+    // public void DeleteVaultKeep(int id)
+    // {
+    //   string sql = "DELETE FROM vaultkeeps WHERE id = @id";
+    //   _db.Execute(sql, new { id });
+    // }
+
+    public void EditVaultKeep(int id)
     {
       string sql = "DELETE FROM vaultkeeps WHERE id = @id";
       _db.Execute(sql, new { id });

@@ -29,15 +29,26 @@ namespace Keepr.Services
       return newVaultKeep;
     }
 
-    public string DeleteVaultKeep(int id)
+    // public string DeleteVaultKeep(int id)
+    // {
+    //   VaultKeep exists = _repo.GetVaultKeepsByVaultId(id);
+    //   if (exists == null)
+    //   {
+    //     throw new Exception("Invalid Id");
+    //   }
+    //   _repo.DeleteVaultKeep(id);
+    //   return "VaultKeep has been deleted";
+    // }
+
+    public string EditVaultKeep(VaultKeep editVaultKeep, string UserId)
     {
-      VaultKeep exists = _repo.GetVaultKeepsByVaultId(id);
-      if (exists == null)
+      VaultKeep vaultKeep = _repo.GetVaultKeepsByVaultId(editVaultKeep.Id);
+      if (vaultKeep == null || vaultKeep.UserId != UserId)
       {
         throw new Exception("Invalid Id");
       }
-      _repo.DeleteVaultKeep(id);
-      return "VaultKeep has been deleted";
+      _repo.EditVaultKeep(vaultKeep.Id);
+      return "Removed VaultKeep";
     }
   }
 }
