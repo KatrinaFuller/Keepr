@@ -19,10 +19,10 @@ namespace Keepr.Repositories
       return _db.Query<Keep>(sql);
     }
 
-    public Keep GetKeepByUserId(string userId)
+    public IEnumerable<Keep> GetKeepByUserId(string userId)
     {
       string sql = "SELECT * FROM keeps WHERE userId = @userId";
-      return _db.QueryFirstOrDefault<Keep>(sql, new { userId });
+      return _db.Query<Keep>(sql, new { userId });
     }
 
     public Keep GetKeepByKeepId(int id)
