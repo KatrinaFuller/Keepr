@@ -1,23 +1,43 @@
 using System;
 using Keepr.Models;
+using Keepr.Repositories;
 
 namespace Keepr.Services
 {
   public class VaultKeepsService
   {
-    internal object GetVaultKeepsByVaultId(int id)
+    public readonly VaultKeepsRepository _repo;
+    public VaultKeepsService(VaultKeepsRepository repo)
     {
-      throw new NotImplementedException();
+      _repo = repo;
     }
 
-    internal object CreateVaultKeep(VaultKeep newVaultKeep)
+    public VaultKeep GetVaultKeepsByVaultId(int id)
     {
-      throw new NotImplementedException();
+      VaultKeep exists = _repo.GetVaultKeepsByVaultId(id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      return exists;
     }
 
-    internal object DeleteVaultKeep(int id)
+    public VaultKeep CreateVaultKeep(VaultKeep newVaultKeep)
     {
-      throw new NotImplementedException();
+      int id = _repo.CreateVaultKeep(newVaultKeep);
+      newVaultKeep.VaultId = id;
+      return newVaultKeep;
+    }
+
+    public string DeleteVaultKeep(int id)
+    {
+      VaultKeep exists = _repo.GetVaultKeepsByVaultId(id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      _repo.DeleteVaultKeep(id);
+      return "VaultKeep has been deleted";
     }
   }
 }
