@@ -9,7 +9,12 @@
         <button class="btn btn-primary" data-toggle="modal" data-target="#add-vault-modal">Add Vault</button>
       </div>
       <div class="row">
-        <keepsList />
+        <div class="col-6">
+          <keepsList />
+        </div>
+        <div class="col-6">
+          <vaultsList />
+        </div>
       </div>
     </div>
   </div>
@@ -22,6 +27,7 @@ import profileNavbar from "../components/profileNavbar";
 import addKeepModal from "../components/addKeepModal";
 import addVaultModal from "../components/addVaultModal";
 import keepsList from "../components/keepsList";
+import vaultsList from "../components/vaultsList";
 
 export default {
   name: "profile",
@@ -30,7 +36,13 @@ export default {
   },
   computed: {},
   methods: {},
-  components: { profileNavbar, addKeepModal, addVaultModal, keepsList }
+  components: {
+    profileNavbar,
+    addKeepModal,
+    addVaultModal,
+    keepsList,
+    vaultsList
+  }
 };
 </script>
 

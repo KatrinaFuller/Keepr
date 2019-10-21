@@ -1,5 +1,6 @@
 <template>
-  <div class="keepsList">
+  <div class="keepsList border">
+    <h1>Keeps List</h1>
     <keep :keep="keep" />
   </div>
 </template>
