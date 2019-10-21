@@ -1,6 +1,8 @@
 <template>
-  <div class="profile container-fluid">
-    <profileNavbar />
+  <div class="container-fluid">
+    <div class="profile">
+      <profileNavbar />
+    </div>
   </div>
 </template>
 

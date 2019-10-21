@@ -29,7 +29,6 @@ export default {
       this.$store.dispatch("logoutNav");
     },
     backButton() {
-      debugger;
       this.$store.dispatch("backButton");
     }
   },
