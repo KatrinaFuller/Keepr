@@ -40,7 +40,7 @@ export default {
       debugger;
       this.$router.push({
         name: "activeKeep",
-        params: { keepId: this.keeps }
+        params: { keepId: this.keeps.keepId }
       });
     }
   },

@@ -37,7 +37,7 @@ export default new Vuex.Store({
       state.activeKeep = payload
     },
     setVaults(state, vaults) {
-      debugger
+      // debugger
       state.vaults = vaults
     }
   },
@@ -96,6 +96,9 @@ export default new Vuex.Store({
     backButton() {
       router.push({ name: "home" })
     },
+    backToProfile() {
+      router.push({ name: "profile" })
+    },
 
     getKeeps({ commit }) {
       // debugger
@@ -106,7 +109,7 @@ export default new Vuex.Store({
     },
 
     getVaults({ commit }) {
-      debugger
+      // debugger
       api.get('vaults')
         .then(res => {
           commit('setVaults', res.data)
@@ -124,7 +127,7 @@ export default new Vuex.Store({
     },
     async addVault({ commit }, data) {
       try {
-        debugger
+        // debugger
         let res = await api.post('/vaults', data)
         commit('setVaults', res.data)
       } catch (error) {
