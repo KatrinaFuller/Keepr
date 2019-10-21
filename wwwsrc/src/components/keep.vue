@@ -5,11 +5,11 @@
         <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
         <img src="http://placehold.it/200x200" alt="Keep Image" />
         <div class="card-body">
-          <p class="card-text">Keep Name</p>
+          <p class="card-text">{{keeps.description}}</p>
           <button class="btn">
             <i class="fas fa-save"></i>
           </button>
-          <button class="btn">
+          <button class="btn" @click="viewKeep()">
             <i class="fas fa-eye"></i>
           </button>
         </div>
@@ -25,8 +25,25 @@ export default {
   data() {
     return {};
   },
-  computed: {},
-  methods: {},
+  mounted() {
+    // debugger;
+    this.$store.dispatch("getKeeps");
+  },
+  computed: {
+    keeps() {
+      // debugger;
+      return this.$store.state.keeps;
+    }
+  },
+  methods: {
+    viewKeep() {
+      // debugger;
+      this.$router.push({
+        name: "activeKeep",
+        params: { Keep }
+      });
+    }
+  },
   components: {}
 };
 </script>

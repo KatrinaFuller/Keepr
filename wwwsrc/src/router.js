@@ -26,5 +26,12 @@ export default new Router({
         return import(/* webpackChunkName: "profile" */ './views/Profile.vue')
       }
     },
+    {
+      path: '/keeps/:keepId',
+      name: 'activeKeep',
+      component: function () {
+        return import(/* webpackChunkName: "activeKeep" */ './views/ActiveKeep.vue')
+      }
+    }
   ]
 })
