@@ -37,7 +37,7 @@ export default new Vuex.Store({
       state.activeKeep = payload
     },
     setVaults(state, vaults) {
-      debugger
+      // debugger
       state.vaults = vaults
     }
   },
@@ -134,7 +134,7 @@ export default new Vuex.Store({
 
     async addVault({ commit }, data) {
       try {
-        debugger
+        // debugger
         let res = await api.post('/vaults', data)
         commit('setVaults', res.data)
       } catch (error) {
