@@ -1,12 +1,12 @@
 <template>
   <div class="keep row">
     <div class="col-3">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem;" v-for="keep in keeps" :key="keep">
         <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
-        <img src="http://placehold.it/200x200" alt="Keep Image" />
+        <img v-bind:src="`${keep.img}`" alt="Keep Image" />
         <div class="card-body">
-          <p class="card-text">{{keeps[1].description}} keep description</p>
-          <p>{{keeps[0].name}}keep name</p>
+          <p class="card-text">{{keep.description}} keep description</p>
+          <p>{{keep.name}}keep name</p>
           <button class="btn">
             <i class="fas fa-save"></i>
           </button>
@@ -23,6 +23,7 @@
 <script>
 export default {
   name: "keep",
+  props: ["keepsProp"],
   data() {
     return {};
   },
