@@ -5,7 +5,8 @@
         <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
         <img src="http://placehold.it/200x200" alt="Keep Image" />
         <div class="card-body">
-          <p class="card-text">{{keeps.description}}</p>
+          <p class="card-text">{{keeps[1].description}} keep description</p>
+          <p>{{keeps[0].name}}keep name</p>
           <button class="btn">
             <i class="fas fa-save"></i>
           </button>
