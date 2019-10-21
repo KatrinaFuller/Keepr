@@ -88,6 +88,9 @@ export default new Vuex.Store({
     usernameButton() {
       router.push({ name: "profile" })
     },
+    backButton() {
+      router.push({ name: "home" })
+    },
 
     getKeeps({ commit }) {
       // debugger

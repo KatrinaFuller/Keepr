@@ -1,10 +1,13 @@
 <template>
-  <div class="profile"></div>
+  <div class="profile container-fluid">
+    <profileNavbar />
+  </div>
 </template>
 
 
 <script>
 import router from "@/router.js";
+import profileNavbar from "../components/profileNavbar";
 
 export default {
   name: "profile",
@@ -13,7 +16,7 @@ export default {
   },
   computed: {},
   methods: {},
-  components: {}
+  components: { profileNavbar }
 };
 </script>
 
