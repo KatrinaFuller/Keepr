@@ -5,7 +5,7 @@
         <form class="form-inline">
           <button class="btn" type="button" @click="backButton">Back</button>
           <h3>{{user.username}}'s Dashboard</h3>
-          <button class="btn" type="button" @click="logout">Logout</button>
+          <button class="btn" type="button" @click="logoutNav">Logout</button>
         </form>
       </nav>
     </div>
