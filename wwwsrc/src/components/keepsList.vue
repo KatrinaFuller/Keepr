@@ -1,9 +1,13 @@
 <template>
-  <div class="keepsList"></div>
+  <div class="keepsList">
+    <keep :keep="keep" />
+  </div>
 </template>
 
 
 <script>
+import keep from "../components/keep";
+
 export default {
   name: "keepsList",
   data() {
@@ -11,7 +15,7 @@ export default {
   },
   computed: {},
   methods: {},
-  components: {}
+  components: { keep }
 };
 </script>
 
