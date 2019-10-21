@@ -15,7 +15,7 @@
                 type="text"
                 class="form-control"
                 id="keep name"
-                placeholder="Enter name of valut"
+                placeholder="Enter name of vault"
                 v-model="newVault.name"
                 required
               />

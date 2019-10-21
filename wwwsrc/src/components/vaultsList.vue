@@ -1,7 +1,7 @@
 <template>
   <div class="vaultsList border">
     <h1>Vaults list</h1>
-    <vault :vault="vault" />
+    <vault />
   </div>
 </template>
 

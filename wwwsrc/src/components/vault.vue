@@ -23,6 +23,7 @@ export default {
   },
   computed: {
     vaults() {
+      debugger;
       return this.$store.state.vaults;
     }
   },

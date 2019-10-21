@@ -1,7 +1,7 @@
 <template>
   <div class="keepsList border">
     <h1>Keeps List</h1>
-    <keep :keep="keep" />
+    <keep />
   </div>
 </template>
 
