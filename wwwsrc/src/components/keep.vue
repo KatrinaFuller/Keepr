@@ -1,12 +1,12 @@
 <template>
   <div class="keep row">
     <div class="col-3">
-      <div class="card" style="width: 18rem;" v-for="keep in keeps" :key="keep">
+      <div class="card" style="width: 18rem;" v-for="keep in keeps" :key="keep.id">
         <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
         <img v-bind:src="`${keep.img}`" alt="Keep Image" />
         <div class="card-body">
-          <p class="card-text">{{keep.description}} keep description</p>
-          <p>{{keep.name}}keep name</p>
+          <p>{{keep.name}}</p>
+          <!-- <p class="card-text">{{keep.description}} keep description</p> -->
           <button class="btn">
             <i class="fas fa-save"></i>
           </button>
@@ -28,21 +28,19 @@ export default {
     return {};
   },
   mounted() {
-    // debugger;
     this.$store.dispatch("getKeeps");
   },
   computed: {
     keeps() {
-      // debugger;
       return this.$store.state.keeps;
     }
   },
   methods: {
     viewKeep() {
-      // debugger;
+      debugger;
       this.$router.push({
         name: "activeKeep",
-        params: { Keep }
+        params: { keepId: this.keeps }
       });
     }
   },

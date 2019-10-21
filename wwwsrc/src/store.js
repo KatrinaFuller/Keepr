@@ -17,7 +17,8 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     user: {},
-    keeps: []
+    keeps: [],
+    activeKeep: {}
   },
   mutations: {
     setUser(state, user) {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     setKeeps(state, keeps) {
       // debugger
       state.keeps = keeps
+    },
+    setActiveKeep(state, payload) {
+      state.activeKeep = payload
     }
   },
   actions: {
@@ -91,6 +95,16 @@ export default new Vuex.Store({
         .then(res => {
           commit('setKeeps', res.data)
         })
+    },
+
+    async getKeepById({ commit }, payload) {
+      try {
+        debugger
+        let res = await api.get(`/keeps/${payload._id}`, payload)
+        commit("setActiveKeep", res.data)
+      } catch (error) {
+        console.error("store.js getKeepById")
+      }
     }
 
   }
