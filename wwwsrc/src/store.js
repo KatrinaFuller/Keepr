@@ -100,9 +100,19 @@ export default new Vuex.Store({
         })
     },
 
+    async addKeep({ commit }, data) {
+      try {
+        // debugger
+        let res = await api.post('/keeps', data)
+        commit('setKeeps', res.data)
+      } catch (error) {
+        console.error("store.js addKeep")
+      }
+    },
+
     async getKeepById({ commit }, payload) {
       try {
-        debugger
+        // debugger
         let res = await api.get(`/keeps/${payload._id}`, payload)
         commit("setActiveKeep", res.data)
       } catch (error) {
