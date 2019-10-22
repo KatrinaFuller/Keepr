@@ -51,7 +51,6 @@ export default {
   computed: {},
   methods: {
     addVault() {
-      debugger;
       this.$store.dispatch("addVault", this.newVault);
       $(".close").click();
     }

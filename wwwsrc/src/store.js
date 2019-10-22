@@ -6,7 +6,7 @@ import AuthService from './AuthService'
 
 Vue.use(Vuex)
 
-let baseUrl = location.host.includes('localhost') ? '//localhost:5000/' : '/'
+let baseUrl = location.host.includes('localhost') ? 'https://localhost:5001/' : '/'
 
 let api = Axios.create({
   baseURL: baseUrl + "api/",
@@ -30,14 +30,12 @@ export default new Vuex.Store({
       state.user = {}
     },
     setKeeps(state, keeps) {
-      // debugger
       state.keeps = keeps
     },
     setActiveKeep(state, payload) {
       state.activeKeep = payload
     },
     setVaults(state, vaults) {
-      // debugger
       state.vaults = vaults
     }
   },
@@ -101,7 +99,6 @@ export default new Vuex.Store({
     },
 
     getKeeps({ commit }) {
-      // debugger
       api.get('keeps')
         .then(res => {
           commit('setKeeps', res.data)
@@ -109,27 +106,26 @@ export default new Vuex.Store({
     },
 
     getVaults({ commit }) {
-      // debugger
       api.get('vaults')
         .then(res => {
           commit('setVaults', res.data)
         })
     },
 
-    async addKeep({ commit }, data) {
+    async addKeep({ commit, dispatch }, data) {
       try {
-        // debugger
         let res = await api.post('/keeps', data)
-        commit('setKeeps', res.data)
+        // commit('setKeeps', res.data)
+        dispatch("getKeeps");
       } catch (error) {
         console.error("store.js addKeep")
       }
     },
-    async addVault({ commit }, data) {
+    async addVault({ commit, dispatch }, data) {
       try {
-        debugger
-        let res = await api.post('/vaults', data)
-        commit('setVaults', data)
+        let res = await api.post('/vaults', data);
+        // commit('setVaults', res.data);
+        dispatch("getVaults");
       } catch (error) {
         console.error("store.js addVault")
       }
@@ -137,7 +133,6 @@ export default new Vuex.Store({
 
     async getKeepById({ commit }, data) {
       try {
-        // debugger
         let res = await api.get(`/keeps/${data._id}`, data)
         commit("setActiveKeep", res.data)
       } catch (error) {
