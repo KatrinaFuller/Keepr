@@ -9,7 +9,7 @@
             {{keep.name}}
             <span
               class="bg-light text-danger rounded px-1 ml-1 pb-1"
-              @click="removeKeep"
+              @click="removeKeep(keep)"
             >x</span>
           </p>
 
@@ -50,9 +50,9 @@ export default {
         params: { keepId: this.keeps.id }
       });
     },
-    removeKeep() {
+    removeKeep(keep) {
       debugger;
-      this.$store.dispatch("removeKeep", this.keep);
+      this.$store.dispatch("removeKeep", keep.id);
     }
   },
   components: {}

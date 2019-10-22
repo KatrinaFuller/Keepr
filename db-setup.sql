@@ -1,5 +1,7 @@
 -- USE keepr10;
 
+-- DELETE FROM VAULTS
+
 -- CREATE TABLE users (
 --     id VARCHAR(255) NOT NULL,
 --     username VARCHAR(255) NOT NULL,
