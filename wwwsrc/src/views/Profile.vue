@@ -15,6 +15,7 @@
         </div>
         <div class="col-6">
           <vaultsList />
+          <vault v-for="vault in vaults" :key="vault.vaults" :vaultProp="vault" />
         </div>
       </div>
     </div>
@@ -30,6 +31,7 @@ import addVaultModal from "../components/addVaultModal";
 import keepsList from "../components/keepsList";
 import keep from "../components/keep";
 import vaultsList from "../components/vaultsList";
+import vault from "../components/vault";
 
 export default {
   name: "profile",
@@ -39,6 +41,9 @@ export default {
   computed: {
     keeps() {
       return this.$store.state.keeps;
+    },
+    vaults() {
+      return this.$store.state.vaults;
     }
   },
   methods: {},
@@ -48,6 +53,7 @@ export default {
     addVaultModal,
     keep,
     keepsList,
+    vault,
     vaultsList
   }
 };

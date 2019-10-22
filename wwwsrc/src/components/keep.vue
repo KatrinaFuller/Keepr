@@ -55,16 +55,16 @@ export default {
     }
   },
   methods: {
-    viewKeep(keep) {
+    viewKeep(keepProp) {
       this.$router.push({
         name: "activeKeep",
-        params: { keepId: keep.id }
+        params: { keepId: keepProp.id }
       });
-      this.$store.dispatch("getKeepById", keep);
+      this.$store.dispatch("getKeepById", keepProp);
     },
     saveKeep(keep) {},
-    removeKeep(keep) {
-      this.$store.dispatch("removeKeep", keep.id);
+    removeKeep(keepProp) {
+      this.$store.dispatch("removeKeep", keepProp.id);
     },
     saveKeep() {
       //need to be able to select a keep

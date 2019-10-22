@@ -1,11 +1,14 @@
 <template>
   <div class="vault row">
     <div class="col-3">
-      <div class="card" style="width: 18rem;" v-for="vault in vaults" :key="vault.vaults">
+      <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h4 @click="viewVault(vault)">{{vault.name}}</h4>
-          <span class="bg-light text-danger rounded px-1 ml-1 pb-1" @click="removeVault(vault)">x</span>
-          <p class="card-text">{{vault.description}}</p>
+          <h4 @click="viewVault(vaultProp)">{{vaultProp.name}}</h4>
+          <span
+            class="bg-light text-danger rounded px-1 ml-1 pb-1"
+            @click="removeVault(vaultProp)"
+          >x</span>
+          <p class="card-text">{{vaultProp.description}}</p>
         </div>
       </div>
     </div>
@@ -16,6 +19,7 @@
 <script>
 export default {
   name: "vault",
+  props: ["vaultProp"],
   data() {
     return {
       // newVault: {
@@ -29,20 +33,20 @@ export default {
     this.$store.dispatch("getVaults");
   },
   computed: {
-    vaults() {
-      let vaults = this.$store.state.vaults;
-      return vaults;
-    }
+    // vaults() {
+    //   let vaults = this.$store.state.vaults;
+    //   return vaults;
+    // }
   },
   methods: {
-    viewVault(vault) {
+    viewVault(vaultProp) {
       this.$router.push({
         name: "activeVault"
       });
-      this.$store.dispatch("getVaultById", vault);
+      this.$store.dispatch("getVaultById", vaultProp);
     },
     removeVault(vault) {
-      this.$store.dispatch("removeVault", vault.id);
+      this.$store.dispatch("removeVault", vaultProp.id);
     }
   },
   components: {}
