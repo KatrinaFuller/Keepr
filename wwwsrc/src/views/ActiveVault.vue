@@ -12,12 +12,18 @@
         <h5>{{vault.description}}</h5>
       </div>
     </div>
+    <!-- <div class="row">
+      <div class="col">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#add-keep-modal">Add Keep</button>
+        <addKeepModal />
+      </div>
+    </div>-->
   </div>
 </template>
 
 
 <script>
-// import vault from "../components/vault";
+// import addKeepModal from "../components/addKeepModal";
 
 export default {
   name: "activeVault",

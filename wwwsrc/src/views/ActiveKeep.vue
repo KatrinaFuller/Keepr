@@ -10,11 +10,14 @@
         <h1>{{keep.name}}</h1>
       </div>
       <div class="col-12">
-        <img v-bind:src="`${keep.img}`" />
+        <img class="img" v-bind:src="`${keep.img}`" />
       </div>
       <div class="col-12">
         <h4>{{keep.description}}</h4>
       </div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
     </div>
   </div>
 </template>
@@ -35,7 +38,6 @@ export default {
   // },
   computed: {
     keep() {
-      // debugger;
       return this.$store.state.activeKeep;
     }
   },
@@ -51,7 +53,7 @@ export default {
 
 <style scoped>
 .img {
-  max-height: 35vh;
+  max-height: 30vh;
   max-width: 35vw;
 }
 </style>
