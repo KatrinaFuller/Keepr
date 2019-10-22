@@ -10,11 +10,11 @@
       </div>
       <div class="row">
         <div class="col-6">
-          <keepsList />
+          <!-- <keepsList /> -->
           <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
         </div>
         <div class="col-6">
-          <vaultsList />
+          <!-- <vaultsList /> -->
           <vault v-for="vault in vaults" :key="vault.vaults" :vaultProp="vault" />
         </div>
       </div>
@@ -28,7 +28,7 @@ import router from "@/router.js";
 import profileNavbar from "../components/profileNavbar";
 import addKeepModal from "../components/addKeepModal";
 import addVaultModal from "../components/addVaultModal";
-import keepsList from "../components/keepsList";
+// import keepsList from "../components/keepsList";
 import keep from "../components/keep";
 import vaultsList from "../components/vaultsList";
 import vault from "../components/vault";
@@ -37,6 +37,10 @@ export default {
   name: "profile",
   data() {
     return {};
+  },
+  mounted() {
+    this.$store.dispatch("getKeeps");
+    this.$store.dispatch("getVaults");
   },
   computed: {
     keeps() {
@@ -52,7 +56,7 @@ export default {
     addKeepModal,
     addVaultModal,
     keep,
-    keepsList,
+    // keepsList,
     vault,
     vaultsList
   }

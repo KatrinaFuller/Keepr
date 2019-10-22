@@ -45,7 +45,7 @@ export default {
       });
       this.$store.dispatch("getVaultById", vaultProp);
     },
-    removeVault(vault) {
+    removeVault(vaultProp) {
       this.$store.dispatch("removeVault", vaultProp.id);
     }
   },
