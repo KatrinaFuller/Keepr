@@ -34,10 +34,12 @@ export default {
     }
   },
   methods: {
-    viewVault(){
+    viewVault() {
+      // debugger;
       this.$router.push({
-        name: 
-      })
+        name: "activeVault",
+        params: { vaultId: this.vault }
+      });
     }
   },
   components: {}
