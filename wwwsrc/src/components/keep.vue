@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     viewKeep() {
-      debugger;
+      // debugger;
       this.$router.push({
         name: "activeKeep",
         params: { keepId: this.keeps.keepId }

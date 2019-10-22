@@ -43,7 +43,9 @@ export default {
   name: "add-vault-modal",
   data() {
     return {
-      newVault: {}
+      newVault: {
+        userId: this.$store.state.user.id
+      }
     };
   },
   computed: {},
