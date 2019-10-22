@@ -174,7 +174,7 @@ export default new Vuex.Store({
     async saveKeep({ dispatch }, payload) {
       try {
         debugger
-        let res = await api.put(`/keeps/${keep.id}`, payload)
+        let res = await api.put(`/vaultkeeps/${payload.vault.id}`, payload)
         dispatch("getVaultById")
       } catch (error) {
         console.error("store.js saveKeep")
