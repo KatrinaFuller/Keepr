@@ -22,10 +22,10 @@
           </button>
           <div>
             <!-- dropdown  -->
-            <select v-model="newVaultId" @change="saveKeep()">
+            <!-- <select v-model="newVaultId" @change="saveKeep()">
               <option disabled value>Move keep to:</option>
               <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
-            </select>
+            </select>-->
           </div>
         </div>
       </div>
