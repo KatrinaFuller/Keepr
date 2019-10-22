@@ -7,6 +7,7 @@
     </div>
     <div class="row">
       <div class="col-12">
+        Name
         <h1>{{keep.name}}</h1>
       </div>
       <div class="col-12">
@@ -28,7 +29,10 @@ export default {
   },
   mounted() {
     // debugger;
-    this.$store.dispatch("getKeepById");
+    let payload = {
+      keep: this.$store.state.activeKeep
+    };
+    this.$store.dispatch("getKeepById", keepId);
   },
   computed: {
     keep() {
