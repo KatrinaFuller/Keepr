@@ -135,10 +135,10 @@ export default new Vuex.Store({
       }
     },
 
-    async getKeepById({ commit }, payload) {
+    async getKeepById({ commit }, keep) {
       try {
         debugger
-        let res = await api.get(`/keeps/${payload.keepId}`)
+        let res = await api.get(`/keeps/${keep.id}`)
         commit("setActiveKeep", res.data)
       } catch (error) {
         console.error("store.js getKeepById")

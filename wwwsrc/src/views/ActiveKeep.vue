@@ -7,7 +7,6 @@
     </div>
     <div class="row">
       <div class="col-12">
-        Name
         <h1>{{keep.name}}</h1>
       </div>
       <div class="col-12">
@@ -27,13 +26,13 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    // debugger;
-    let payload = {
-      keep: this.$store.state.activeKeep
-    };
-    this.$store.dispatch("getKeepById", keepId);
-  },
+  // mounted() {
+  //   // debugger;
+  //   let payload = {
+  //     keep: this.$store.state.activeKeep
+  //   };
+  //   this.$store.dispatch("getKeepById", keepId);
+  // },
   computed: {
     keep() {
       // debugger;
@@ -51,4 +50,8 @@ export default {
 
 
 <style scoped>
+.img {
+  max-height: 35vh;
+  max-width: 35vw;
+}
 </style>

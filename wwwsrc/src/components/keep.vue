@@ -17,7 +17,7 @@
           <button class="btn">
             <i class="fas fa-save"></i>
           </button>
-          <button class="btn" @click="viewKeep()">
+          <button class="btn" @click="viewKeep(keep)">
             <i class="fas fa-eye"></i>
           </button>
         </div>
@@ -43,12 +43,12 @@ export default {
     }
   },
   methods: {
-    viewKeep() {
-      // debugger;
+    viewKeep(keep) {
+      debugger;
       this.$router.push({
-        name: "activeKeep",
-        params: { keepId: this.keeps.id }
+        name: "activeKeep"
       });
+      this.$store.dispatch("getKeepById", keep);
     },
     removeKeep(keep) {
       this.$store.dispatch("removeKeep", keep.id);
