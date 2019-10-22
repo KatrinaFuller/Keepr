@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <vault v-for="vault in vaults" :vault="vault" :key="vault._id" />
+        <!-- <vault v-for="vault in vaults" :vault="vault" :key="vault._id" /> -->
         <!-- <h1>{{vault.name}}</h1> -->
         <!-- <h5>{{vault.description}}</h5> -->
       </div>
@@ -17,20 +17,20 @@
 
 
 <script>
-import vault from "../components/vault";
+// import vault from "../components/vault";
 
 export default {
   name: "activeVault",
   data() {
     return {};
   },
-  mounted() {
-    // debugger;
-    // let payload = {
-    //   id: this.$route.params.vaultId
-    // };
-    this.$store.dispatch("getVaultById");
-  },
+  // mounted() {
+  //   // debugger;
+  //   // let payload = {
+  //   //   id: this.$route.params.vaultId
+  //   // };
+  //   this.$store.dispatch("getVaultById");
+  // },
   computed: {
     vault() {
       // debugger;
@@ -42,7 +42,7 @@ export default {
       this.$store.dispatch("backToProfile");
     }
   },
-  components: { vault }
+  components: {}
 };
 </script>
 

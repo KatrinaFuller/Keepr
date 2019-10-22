@@ -135,16 +135,25 @@ export default new Vuex.Store({
       }
     },
 
-    async getKeepById({ commit }, payload) {
-      try {
-        debugger
-        let res = await api.get(`/keeps/${payload.keepId}`)
-        commit("setActiveKeep", res.data)
-      } catch (error) {
-        console.error("store.js getKeepById")
-      }
-    },
+    // async getKeepById({ commit }, payload) {
+    //   try {
+    //     // debugger
+    //     let res = await api.get(`/keeps/${payload.keepId}`)
+    //     commit("setActiveKeep", res.data)
+    //   } catch (error) {
+    //     console.error("store.js getKeepById")
+    //   }
+    // },
 
+
+    // async getVaultById({ commit }, payload) {
+    //   try {
+    //     // debugger
+    //     let res = await api.get(`/vaults/${payload.vaultId}`)
+    //   } catch (error) {
+    //     console.error("store.js getVaultById")
+    //   }
+    // },
     async removeKeep({ dispatch }, data) {
       try {
         let res = await api.delete('/keeps/' + data)
@@ -154,12 +163,12 @@ export default new Vuex.Store({
       }
     },
 
-    async getVaultById({ commit }, payload) {
+    async removeVault({ dispatch }, data) {
       try {
-        // debugger
-        let res = await api.get(`/vaults/${payload.vaultId}`)
+        let res = await api.delete('/vaults/' + data)
+        dispatch('getVaults')
       } catch (error) {
-        console.error("store.js getVaultById")
+        console.error("store.js removeVault")
       }
     }
 
