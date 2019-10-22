@@ -1,11 +1,18 @@
 <template>
   <div class="keep row">
-    <div class="col-3">
+    <div class="col-3 justify-content-start">
       <div class="card" style="width: 18rem;" v-for="keep in keeps" :key="keep.id">
         <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
         <img v-bind:src="`${keep.img}`" alt="Keep Image" />
         <div class="card-body">
-          <p>{{keep.name}}</p>
+          <p>
+            {{keep.name}}
+            <span
+              class="bg-light text-danger rounded px-1 ml-1 pb-1"
+              @click="removeKeep"
+            >x</span>
+          </p>
+
           <!-- <p class="card-text">{{keep.description}} keep description</p> -->
           <button class="btn">
             <i class="fas fa-save"></i>
@@ -42,6 +49,10 @@ export default {
         name: "activeKeep",
         params: { keepId: this.keeps.id }
       });
+    },
+    removeKeep() {
+      debugger;
+      this.$store.dispatch("removeKeep", this.keep);
     }
   },
   components: {}
