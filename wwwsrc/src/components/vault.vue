@@ -2,14 +2,9 @@
   <div class="vault row">
     <div class="col-3">
       <div class="card" style="width: 18rem;" v-for="vault in vaults" :key="vault.vaults">
-        <div class="card-body" @click="viewVault()">
-          <h4>
-            {{vault.name}}
-            <span
-              class="bg-light text-danger rounded px-1 ml-1 pb-1"
-              @click="removeVault(vault)"
-            >x</span>
-          </h4>
+        <div class="card-body">
+          <h4 @click="viewVault(vault)">{{vault.name}}</h4>
+          <span class="bg-light text-danger rounded px-1 ml-1 pb-1" @click="removeVault(vault)">x</span>
           <p class="card-text">{{vault.description}}</p>
         </div>
       </div>
@@ -40,13 +35,13 @@ export default {
     }
   },
   methods: {
-    // viewVault() {
-    //   // debugger;
-    //   this.$router.push({
-    //     name: "activeVault",
-    //     params: { vaultId: this.vault }
-    //   });
-    // },
+    viewVault(vault) {
+      debugger;
+      this.$router.push({
+        name: "activeVault"
+      });
+      this.$store.dispatch("getVaultById", vault);
+    },
     removeVault(vault) {
       this.$store.dispatch("removeVault", vault.id);
     }

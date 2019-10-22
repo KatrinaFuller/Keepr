@@ -58,7 +58,6 @@ export default {
   computed: {},
   methods: {
     addKeep() {
-      // debugger;
       this.$store.dispatch("addKeep", this.newKeep);
       $(".close").click();
     }

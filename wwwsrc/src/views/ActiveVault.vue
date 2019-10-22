@@ -8,8 +8,8 @@
     <div class="row">
       <div class="col-12">
         <!-- <vault v-for="vault in vaults" :vault="vault" :key="vault._id" /> -->
-        <!-- <h1>{{vault.name}}</h1> -->
-        <!-- <h5>{{vault.description}}</h5> -->
+        <h1>{{vault.name}}</h1>
+        <h5>{{vault.description}}</h5>
       </div>
     </div>
   </div>
