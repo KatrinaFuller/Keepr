@@ -14,7 +14,7 @@
           </p>
 
           <!-- <p class="card-text">{{keep.description}} keep description</p> -->
-          <button class="btn" @click="saveKeep(keep)">
+          <button class="btn" @click="saveKeep()">
             <i class="fas fa-save"></i>
           </button>
           <button class="btn" @click="viewKeep(keep)">
@@ -22,7 +22,7 @@
           </button>
           <div>
             <!-- dropdown  -->
-            <select v-model="newVaultId" @change="moveKeep(keep)">
+            <select v-model="newVaultId" @change="saveKeep()">
               <option disabled value>Move keep to:</option>
               <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
             </select>
@@ -47,6 +47,9 @@ export default {
   computed: {
     keeps() {
       return this.$store.state.keeps;
+    },
+    vaults() {
+      return this.$store.state.vaults;
     }
   },
   methods: {
@@ -60,7 +63,18 @@ export default {
     removeKeep(keep) {
       this.$store.dispatch("removeKeep", keep.id);
     },
-    moveKeep(keep) {}
+    saveKeep() {
+      //need to be able to select a keep
+      //needs the keeps id
+      //need the id of the optional vaults the keep can be saved to
+      debugger;
+      let payload = {
+        keepId: this.keeps,
+        vaultId: this.$store.state.vaults,
+        newVaultId: this.keeps.vaultId
+      };
+      this.$store.dispatch("saveKeep", payload);
+    }
   },
   components: {}
 };

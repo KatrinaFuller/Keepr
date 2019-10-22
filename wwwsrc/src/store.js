@@ -169,6 +169,16 @@ export default new Vuex.Store({
       } catch (error) {
         console.error("store.js removeVault")
       }
+    },
+
+    async saveKeep({ dispatch }, payload) {
+      try {
+        debugger
+        let res = await api.put(`/keeps/${keep.id}`, payload)
+        dispatch("getVaultById")
+      } catch (error) {
+        console.error("store.js saveKeep")
+      }
     }
 
   }
