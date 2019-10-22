@@ -1,15 +1,15 @@
 <template>
   <div class="keep row">
     <div class="col-3 justify-content-start">
-      <div class="card" style="width: 18rem;" v-for="keep in keeps" :key="keep.id">
+      <div class="card" style="width: 18rem;">
         <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
-        <img class="img" v-bind:src="`${keep.img}`" alt="Keep Image" />
+        <img class="img" v-bind:src="keepProp.img" alt="Keep Image" />
         <div class="card-body">
           <p>
-            {{keep.name}}
+            {{keepProp.name}}
             <span
               class="bg-light text-danger rounded px-1 ml-1 pb-1"
-              @click="removeKeep(keep)"
+              @click="removeKeep(keepProp)"
             >x</span>
           </p>
 
@@ -17,15 +17,15 @@
           <button class="btn" @click="saveKeep()">
             <i class="fas fa-save"></i>
           </button>
-          <button class="btn" @click="viewKeep(keep)">
+          <button class="btn" @click="viewKeep(keepProp)">
             <i class="fas fa-eye"></i>
           </button>
           <div>
             <!-- dropdown  -->
-            <!-- <select v-model="newVaultId" @change="saveKeep()">
+            <select v-model="newVaultId" @change="saveKeep()">
               <option disabled value>Move keep to:</option>
               <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
-            </select>-->
+            </select>
           </div>
         </div>
       </div>
@@ -37,24 +37,25 @@
 <script>
 export default {
   name: "keep",
-  props: ["keepsProp"],
+  props: ["keepProp"],
   data() {
-    return {};
+    return {
+      newVaultId: ""
+    };
   },
   mounted() {
     this.$store.dispatch("getKeeps");
   },
   computed: {
-    keeps() {
-      return this.$store.state.keeps;
-    },
+    // keeps() {
+    //   return this.$store.state.keeps;
+    // },
     vaults() {
       return this.$store.state.vaults;
     }
   },
   methods: {
     viewKeep(keep) {
-      debugger;
       this.$router.push({
         name: "activeKeep",
         params: { keepId: keep.id }
@@ -70,11 +71,11 @@ export default {
       //needs the keeps id
       //need the id of the optional vaults the keep can be saved to
       // debugger;
-      let payload = {
-        keepId: this.keeps,
-        vaultId: this.$store.state.vaults,
-        newVaultId: this.keeps.vaultId
-      };
+      // let payload = {
+      //   keepId: keeps
+      //   vaultId: this.$store.state.vaults,
+      //   newVaultId: this.keeps.vaultId
+      // };
       this.$store.dispatch("saveKeep", payload);
     }
   },

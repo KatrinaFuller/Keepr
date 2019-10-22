@@ -11,6 +11,7 @@
       <div class="row">
         <div class="col-6">
           <keepsList />
+          <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
         </div>
         <div class="col-6">
           <vaultsList />
@@ -27,6 +28,7 @@ import profileNavbar from "../components/profileNavbar";
 import addKeepModal from "../components/addKeepModal";
 import addVaultModal from "../components/addVaultModal";
 import keepsList from "../components/keepsList";
+import keep from "../components/keep";
 import vaultsList from "../components/vaultsList";
 
 export default {
@@ -34,12 +36,17 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    keeps() {
+      return this.$store.state.keeps;
+    }
+  },
   methods: {},
   components: {
     profileNavbar,
     addKeepModal,
     addVaultModal,
+    keep,
     keepsList,
     vaultsList
   }

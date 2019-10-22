@@ -1,7 +1,7 @@
 <template>
   <div class="home container-fluid">
     <navbar />
-    <keep />
+    <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     <!-- <h1>Welcome Home {{user.username}}</h1>
     <button v-if="user.id" @click="logout">logout</button>
     <router-link v-else :to="{name: 'login'}">Login</router-link>-->
@@ -18,6 +18,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
+    },
+    keeps() {
+      return this.$store.state.keeps;
     }
   },
   methods: {
