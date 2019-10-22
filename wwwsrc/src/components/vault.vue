@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     viewVault(vault) {
-      debugger;
       this.$router.push({
         name: "activeVault"
       });

@@ -148,7 +148,6 @@ export default new Vuex.Store({
 
     async getVaultById({ commit }, vault) {
       try {
-        debugger
         let res = await api.get(`/vaults/${vault.id}`)
         commit("setActiveVault", res.data)
       } catch (error) {
