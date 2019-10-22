@@ -32,6 +32,12 @@ export default new Router({
       component: function () {
         return import(/* webpackChunkName: "activeKeep" */ './views/ActiveKeep.vue')
       }
+    }, {
+      path: '/vaults/:vaultId',
+      name: 'activeVault',
+      component: function () {
+        return import(/* webpackChunkName: "activeVault" */ './views/ActiveVault.vue')
+      }
     }
   ]
 })

@@ -33,7 +33,13 @@ export default {
       return vaults;
     }
   },
-  methods: {},
+  methods: {
+    viewVault(){
+      this.$router.push({
+        name: 
+      })
+    }
+  },
   components: {}
 };
 </script>
