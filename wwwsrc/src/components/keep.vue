@@ -51,7 +51,6 @@ export default {
       });
     },
     removeKeep(keep) {
-      debugger;
       this.$store.dispatch("removeKeep", keep.id);
     }
   },
