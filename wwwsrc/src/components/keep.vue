@@ -54,8 +54,10 @@ export default {
   },
   methods: {
     viewKeep(keep) {
+      debugger;
       this.$router.push({
-        name: "activeKeep"
+        name: "activeKeep",
+        params: { keepId: keep.id }
       });
       this.$store.dispatch("getKeepById", keep);
     },
@@ -67,7 +69,7 @@ export default {
       //need to be able to select a keep
       //needs the keeps id
       //need the id of the optional vaults the keep can be saved to
-      debugger;
+      // debugger;
       let payload = {
         keepId: this.keeps,
         vaultId: this.$store.state.vaults,
