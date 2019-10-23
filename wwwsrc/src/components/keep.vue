@@ -72,7 +72,7 @@ export default {
       this.$store.dispatch("removeKeep", keepProp.id);
     },
     saveKeep() {
-      debugger;
+      // debugger;
       let payload = {
         keepId: this.keepProp.id,
         vaultId: this.newVaultId,

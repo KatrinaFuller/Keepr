@@ -33,20 +33,20 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    // debugger;
-    this.$store.dispatch("getVaultKeeps");
-  },
+  // mounted() {
+  //   debugger;
+  //   this.$store.dispatch("getVaultKeepsById");
+  // },
   computed: {
     vault() {
       return this.$store.state.activeVault;
     },
     vaultkeeps() {
       return this.$store.state.vaultkeeps;
-    },
-    keeps() {
-      return this.$store.state.keeps[this.vault.id] || [];
     }
+    // keeps() {
+    //   return this.$store.state.keeps[this.vault.id] || [];
+    // }
   },
   methods: {
     backToProfile() {
