@@ -18,12 +18,12 @@ namespace Keepr.Controllers
     }
 
     [HttpGet("{vaultId}")]
-    public ActionResult<VaultKeep> GetVaultKeepsByVaultId(int vaultId)
+    public ActionResult<IEnumerable<VaultKeep>> GetVaultKeepsByVaultId(int vaultId, string userId)
     {
       try
       {
         // var id = HttpContext.User.FindFirstValue("Id");
-        return Ok(_vks.GetVaultKeepsByVaultId(vaultId));
+        return Ok(_vks.GetVaultKeepsByVaultId(vaultId, userId));
       }
       catch (Exception e)
       {

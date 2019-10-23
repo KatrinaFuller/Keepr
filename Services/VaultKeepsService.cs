@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Keepr.Models;
 using Keepr.Repositories;
 
@@ -12,14 +13,14 @@ namespace Keepr.Services
       _repo = repo;
     }
 
-    public VaultKeep GetVaultKeepsByVaultId(int vaultId)
+    public IEnumerable<VaultKeep> GetVaultKeepsByVaultId(int vaultId, string userId)
     {
-      VaultKeep exists = _repo.GetVaultKeepsByVaultId(vaultId);
-      if (exists == null)
-      {
-        throw new Exception("Invalid Id");
-      }
-      return exists;
+      // Keep exists = _repo.GetVaultKeepsByVaultId(vaultId);
+      // if (exists == null)
+      // {
+      //   throw new Exception("Invalid Id");
+      // }
+      return _repo.GetVaultKeepsByVaultId(vaultId, userId);
     }
 
     public VaultKeep CreateVaultKeep(VaultKeep newVaultKeep)
