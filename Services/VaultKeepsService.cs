@@ -8,12 +8,16 @@ namespace Keepr.Services
   public class VaultKeepsService
   {
     public readonly VaultKeepsRepository _repo;
-    public VaultKeepsService(VaultKeepsRepository repo)
+    public readonly VaultsRepository _vrepo;
+    public readonly KeepsRepository _krepo;
+    public VaultKeepsService(VaultKeepsRepository repo, VaultsRepository vrepo, KeepsRepository krepo)
     {
       _repo = repo;
+      _vrepo = vrepo;
+      _krepo = krepo;
     }
 
-    public IEnumerable<VaultKeep> GetVaultKeepsByVaultId(int vaultId, string userId)
+    public IEnumerable<Keep> GetVaultKeepsByVaultId(int vaultId, string userId)
     {
       // Keep exists = _repo.GetVaultKeepsByVaultId(vaultId);
       // if (exists == null)
@@ -23,11 +27,15 @@ namespace Keepr.Services
       return _repo.GetVaultKeepsByVaultId(vaultId, userId);
     }
 
-    public VaultKeep CreateVaultKeep(VaultKeep newVaultKeep)
+    public string CreateVaultKeep(VaultKeep newVaultKeep)
     {
-      int id = _repo.CreateVaultKeep(newVaultKeep);
-      newVaultKeep.VaultId = id;
-      return newVaultKeep;
+      Vault vault = _vrepo.GetVaultById(newVaultKeep.VaultId);
+      if (vault == null) { throw new Exception("invalid id"); }
+      Keep keep = _krepo.GetKeepByKeepId(newVaultKeep.KeepId);
+      if (keep == null) { throw new Exception("invalid id"); }
+      _repo.CreateVaultKeep(newVaultKeep.VaultId, newVaultKeep.KeepId, newVaultKeep.UserId);
+
+      return "success";
     }
 
     // public string DeleteVaultKeep(int id)
