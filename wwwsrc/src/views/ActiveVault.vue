@@ -14,7 +14,8 @@
     </div>
     <div class="row">
       <div class="col-3">
-        <keep v-for="keep in keeps" :keepProp="keep" :key="keep.id" />
+        <vaultkeep v-for="keep in vaultkeeps" :vaultkeepProp="vaultkeep" :key="keep.id" />
+        <!-- <keep v-for="keep in keeps" :keepProp="keep" :key="keep.id" /> -->
         <!-- <keep /> -->
       </div>
     </div>
@@ -23,7 +24,8 @@
 
 
 <script>
-import keep from "../components/keep";
+// import keep from "../components/keep";
+import vaultkeep from "../components/vaultkeep";
 
 export default {
   name: "activeVault",
@@ -32,12 +34,15 @@ export default {
     return {};
   },
   mounted() {
-    debugger;
+    // debugger;
     this.$store.dispatch("getVaultKeeps");
   },
   computed: {
     vault() {
       return this.$store.state.activeVault;
+    },
+    vaultkeeps() {
+      return this.$store.state.vaultkeeps;
     },
     keeps() {
       return this.$store.state.keeps[this.vault.id] || [];
@@ -48,7 +53,7 @@ export default {
       this.$store.dispatch("backToProfile");
     }
   },
-  components: { keep }
+  components: { vaultkeep }
 };
 </script>
 
