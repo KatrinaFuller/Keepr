@@ -12,34 +12,31 @@
         <h5>{{vault.description}}</h5>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add-keep-modal">Add Keep</button>
-        <addKeepModal />
+    <div class="row">
+      <div class="col-3">
+        <keep v-for="keep in keeps" :keepProp="keep" :key="keep.id" />
+        <!-- <keep /> -->
       </div>
-    </div>-->
+    </div>
   </div>
 </template>
 
 
 <script>
-// import addKeepModal from "../components/addKeepModal";
+import keep from "../components/keep";
 
 export default {
   name: "activeVault",
+  props: ["keepProp"],
   data() {
     return {};
   },
-  // mounted() {
-  //   // debugger;
-  //   // let payload = {
-  //   //   id: this.$route.params.vaultId
-  //   // };
-  //   this.$store.dispatch("getVaultById");
-  // },
+  mounted() {
+    debugger;
+    this.$store.dispatch("getVaultWithKeepId", keepProp);
+  },
   computed: {
     vault() {
-      // debugger;
       return this.$store.state.activeVault;
     }
   },
@@ -48,7 +45,7 @@ export default {
       this.$store.dispatch("backToProfile");
     }
   },
-  components: {}
+  components: { keep }
 };
 </script>
 

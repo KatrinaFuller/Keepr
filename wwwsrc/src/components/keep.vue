@@ -79,6 +79,7 @@ export default {
         keepProp: this.keepProp
       };
       this.$store.dispatch("saveKeep", payload);
+      this.$store.dispatch("addVaultKeep", payload);
     }
   },
   components: {}
