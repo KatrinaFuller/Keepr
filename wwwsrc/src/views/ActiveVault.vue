@@ -31,10 +31,10 @@ export default {
   data() {
     return {};
   },
-  // mounted() {
-  //   debugger;
-  //   this.$store.dispatch("getVaultWithKeepId");
-  // },
+  mounted() {
+    debugger;
+    this.$store.dispatch("getVaultKeeps");
+  },
   computed: {
     vault() {
       return this.$store.state.activeVault;
