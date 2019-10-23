@@ -41,7 +41,8 @@ export default {
   methods: {
     viewVault(vaultProp) {
       this.$router.push({
-        name: "activeVault"
+        name: "activeVault",
+        params: { vaultId: vaultProp.id }
       });
       this.$store.dispatch("getVaultById", vaultProp);
     },

@@ -14,6 +14,9 @@ import keep from "../components/keep";
 
 export default {
   name: "home",
+  mounted() {
+    this.$store.dispatch("getKeeps");
+  },
   components: { navbar, keep },
   computed: {
     user() {

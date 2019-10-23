@@ -24,7 +24,12 @@
             <!-- dropdown  -->
             <select v-model="newVaultId" @change="saveKeep()">
               <option disabled value>Move keep to:</option>
-              <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
+              <option
+                v-for="vault in vaults"
+                :key="vault.id"
+                :value="vault.id"
+                :vaultProp="vault"
+              >{{vault.name}}</option>
             </select>
           </div>
         </div>
@@ -37,7 +42,7 @@
 <script>
 export default {
   name: "keep",
-  props: ["keepProp"],
+  props: ["keepProp", "vaultProp"],
   data() {
     return {
       newVaultId: ""
@@ -67,15 +72,12 @@ export default {
       this.$store.dispatch("removeKeep", keepProp.id);
     },
     saveKeep() {
-      //need to be able to select a keep
-      //needs the keeps id
-      //need the id of the optional vaults the keep can be saved to
       // debugger;
-      // let payload = {
-      //   keepId: keeps
-      //   vaultId: this.$store.state.vaults,
-      //   newVaultId: this.keeps.vaultId
-      // };
+      let payload = {
+        keepId: this.keepProp.id,
+        vaultId: this.newVaultId,
+        keepProp: this.keepProp
+      };
       this.$store.dispatch("saveKeep", payload);
     }
   },
