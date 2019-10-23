@@ -31,13 +31,16 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    debugger;
-    this.$store.dispatch("getVaultWithKeepId", keepProp);
-  },
+  // mounted() {
+  //   debugger;
+  //   this.$store.dispatch("getVaultWithKeepId");
+  // },
   computed: {
     vault() {
       return this.$store.state.activeVault;
+    },
+    keeps() {
+      return this.$store.state.keeps[this.vault.id] || [];
     }
   },
   methods: {
