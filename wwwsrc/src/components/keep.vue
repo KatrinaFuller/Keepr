@@ -7,29 +7,34 @@
         <div class="card-body">
           <p>
             {{keepProp.name}}
-            <span
+            <!-- <span
               class="bg-light text-danger rounded px-1 ml-1 pb-1"
               @click="removeKeep(keepProp)"
-            >x</span>
+            >x</span>-->
           </p>
 
-          <button class="btn" @click="saveKeep()">
+          <button class="btn" type="button" data-toggle="collapse" data-target="#collapseSave">
             <i class="fas fa-save"></i>
           </button>
           <button class="btn" @click="viewKeep(keepProp)">
             <i class="fas fa-eye"></i>
           </button>
+          <button class="btn" @click="removeKeep(keepProp)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
           <div>
             <!-- dropdown  -->
-            <select v-model="newVaultId" @change="saveKeep()">
-              <option disabled value>Move keep to:</option>
-              <option
-                v-for="vault in vaults"
-                :key="vault.id"
-                :value="vault.id"
-                :vaultProp="vault"
-              >{{vault.name}}</option>
-            </select>
+            <div class="collapse" id="collapseSave">
+              <select v-model="newVaultId" @change="saveKeep()">
+                <option disabled value>Move keep to:</option>
+                <option
+                  v-for="vault in vaults"
+                  :key="vault.id"
+                  :value="vault.id"
+                  :vaultProp="vault"
+                >{{vault.name}}</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
