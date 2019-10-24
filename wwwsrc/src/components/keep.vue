@@ -1,40 +1,40 @@
 <template>
-  <!-- <div class="keep row"> -->
-  <div class="col-3">
-    <!-- <div class="card" style="width: 18rem;"> -->
-    <div class="card" style="width: 18rem;">
-      <img class="img" v-bind:src="keepProp.img" alt="Keep Image" />
-      <div class="card-body">
-        <p>
-          {{keepProp.name}}
-          <span
-            class="bg-light text-danger rounded px-1 ml-1 pb-1"
-            @click="removeKeep(keepProp)"
-          >x</span>
-        </p>
+  <div class="keep row">
+    <div class="col-3">
+      <div class="card shadow m-2" style="width: 18rem;">
+        <!-- <div class="card shadow m-2"> -->
+        <img class="img" v-bind:src="keepProp.img" alt="Keep Image" />
+        <div class="card-body">
+          <p>
+            {{keepProp.name}}
+            <span
+              class="bg-light text-danger rounded px-1 ml-1 pb-1"
+              @click="removeKeep(keepProp)"
+            >x</span>
+          </p>
 
-        <button class="btn" @click="saveKeep()">
-          <i class="fas fa-save"></i>
-        </button>
-        <button class="btn" @click="viewKeep(keepProp)">
-          <i class="fas fa-eye"></i>
-        </button>
-        <div>
-          <!-- dropdown  -->
-          <select v-model="newVaultId" @change="saveKeep()">
-            <option disabled value>Move keep to:</option>
-            <option
-              v-for="vault in vaults"
-              :key="vault.id"
-              :value="vault.id"
-              :vaultProp="vault"
-            >{{vault.name}}</option>
-          </select>
+          <button class="btn" @click="saveKeep()">
+            <i class="fas fa-save"></i>
+          </button>
+          <button class="btn" @click="viewKeep(keepProp)">
+            <i class="fas fa-eye"></i>
+          </button>
+          <div>
+            <!-- dropdown  -->
+            <select v-model="newVaultId" @change="saveKeep()">
+              <option disabled value>Move keep to:</option>
+              <option
+                v-for="vault in vaults"
+                :key="vault.id"
+                :value="vault.id"
+                :vaultProp="vault"
+              >{{vault.name}}</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 

@@ -8,7 +8,7 @@
         <addVaultModal />
         <button class="btn btn-primary" data-toggle="modal" data-target="#add-vault-modal">Add Vault</button>
       </div>
-      <div class="row justify-content-between">
+      <div class="row">
         <!-- <div class="col-3"> -->
         <div class="col-12">
           <h3>Keeps</h3>

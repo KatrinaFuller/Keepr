@@ -12,9 +12,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-3">
-        <keep v-for="keep in vaultkeeps" :keepProp="keep" :key="keep.id" />
-      </div>
+      <!-- <div class="col-3"> -->
+      <keep v-for="keep in vaultkeeps" :keepProp="keep" :key="keep.id" />
+      <!-- </div> -->
     </div>
   </div>
 </template>

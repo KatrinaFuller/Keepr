@@ -6,7 +6,7 @@
         <h1>Keepr</h1>
       </div>
     </div>
-    <div class="row justify-content-between">
+    <div class="row">
       <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     </div>
     <!-- <h1>Welcome Home {{user.username}}</h1>

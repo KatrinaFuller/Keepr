@@ -1,7 +1,7 @@
 <template>
   <div class="vault row">
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
+    <div class="col-3 m-2">
+      <div class="card shadow" style="width: 18rem;">
         <div class="card-body">
           <h4 @click="viewVault(vaultProp)">{{vaultProp.name}}</h4>
           <span
