@@ -8,13 +8,21 @@
         <addVaultModal />
         <button class="btn btn-primary" data-toggle="modal" data-target="#add-vault-modal">Add Vault</button>
       </div>
+      <div class="row justify-content-between">
+        <!-- <div class="col-3"> -->
+        <div class="col-12">
+          <h3>Keeps</h3>
+        </div>
+        <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
+        <!-- </div> -->
+      </div>
       <div class="row">
-        <div class="col-6">
-          <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
+        <!-- <div class="col-6"> -->
+        <div class="col-12">
+          <h3>Vaults</h3>
         </div>
-        <div class="col-6">
-          <vault v-for="vault in vaults" :key="vault.vaults" :vaultProp="vault" />
-        </div>
+        <vault v-for="vault in vaults" :key="vault.vaults" :vaultProp="vault" />
+        <!-- </div> -->
       </div>
     </div>
   </div>
