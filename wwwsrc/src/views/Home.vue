@@ -1,6 +1,11 @@
 <template>
   <div class="home container-fluid">
     <navbar />
+    <div class="row justify-content-center">
+      <div class="col-2">
+        <h1>Keepr</h1>
+      </div>
+    </div>
     <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     <!-- <h1>Welcome Home {{user.username}}</h1>
     <button v-if="user.id" @click="logout">logout</button>
