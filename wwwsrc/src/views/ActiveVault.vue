@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-3">
         <!-- <vaultkeep v-for="keep in vaultkeeps" :vaultkeepProp="vaultkeep" :key="keep.id" /> -->
-        <keep v-for="keep in keeps" :keepProp="keep" :key="keep.id" />
+        <keep v-for="keep in vaultkeeps" :keepProp="keep" :key="keep.id" />
         <!-- <keep /> -->
       </div>
     </div>
@@ -47,8 +47,13 @@ export default {
     // vaultkeeps() {
     //   return this.$store.state.vaultkeeps;
     // }
-    keeps() {
-      return this.$store.state.keeps;
+    // keeps() {
+    //   debugger;
+    //   return this.$store.state.keeps;
+    // }
+    vaultkeeps() {
+      debugger;
+      return this.$store.state.vaultkeeps;
     }
   },
   methods: {
