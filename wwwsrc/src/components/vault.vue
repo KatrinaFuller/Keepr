@@ -40,11 +40,14 @@ export default {
   },
   methods: {
     viewVault(vaultProp) {
+      // debugger;
       this.$router.push({
         name: "activeVault",
         params: { vaultId: vaultProp.id }
       });
       this.$store.dispatch("getVaultById", vaultProp);
+      // debugger;
+      // this.$store.dispatch("getKeepsByVault", vaultProp);
     },
     removeVault(vaultProp) {
       this.$store.dispatch("removeVault", vaultProp.id);

@@ -31,14 +31,16 @@ export default {
   name: "activeVault",
   props: ["keepProp"],
   data() {
-    debugger;
+    // debugger;
     return {
       activeVault: this.$store.state.activeVault
     };
   },
   mounted() {
-    debugger;
-    this.$store.dispatch("getKeepsByVault", this.activeVault.id);
+    // debugger;
+    //debugger;
+
+    this.$store.dispatch("getKeepsByVault", this.$route.params.vaultId);
   },
   computed: {
     vault() {
@@ -52,7 +54,7 @@ export default {
     //   return this.$store.state.keeps;
     // }
     vaultkeeps() {
-      debugger;
+      // debugger;
       return this.$store.state.vaultkeeps;
     }
   },
