@@ -190,6 +190,14 @@ export default new Vuex.Store({
         console.error("store.js removeKeep")
       }
     },
+    async removeVaultKeepRelationship({ dispatch }, data) {
+      try {
+        let res = await api.put('/vaultkeeps', data)
+        dispatch("getKeepsByVault", data.vaultId)
+      } catch (error) {
+        console.error("store.js removeVaultKeepRelationship")
+      }
+    },
 
     async removeVault({ dispatch }, data) {
       try {
@@ -199,7 +207,6 @@ export default new Vuex.Store({
         console.error("store.js removeVault")
       }
     },
-
     async saveKeep({ dispatch }, payload) {
       try {
         let res = await api.put(`/vaultkeeps/`, payload)
