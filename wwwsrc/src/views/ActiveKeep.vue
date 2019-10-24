@@ -29,13 +29,6 @@ export default {
   data() {
     return {};
   },
-  // mounted() {
-  //   // debugger;
-  //   let payload = {
-  //     keep: this.$store.state.activeKeep
-  //   };
-  //   this.$store.dispatch("getKeepById", keepId);
-  // },
   computed: {
     keep() {
       return this.$store.state.activeKeep;

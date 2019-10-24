@@ -21,33 +21,19 @@ export default {
   name: "vault",
   props: ["vaultProp"],
   data() {
-    return {
-      // newVault: {
-      //   name: "",
-      //   description: "",
-      //   userId: this.$store.state.user.id
-      // }
-    };
+    return {};
   },
   mounted() {
     this.$store.dispatch("getVaults");
   },
-  computed: {
-    // vaults() {
-    //   let vaults = this.$store.state.vaults;
-    //   return vaults;
-    // }
-  },
+  computed: {},
   methods: {
     viewVault(vaultProp) {
-      // debugger;
       this.$router.push({
         name: "activeVault",
         params: { vaultId: vaultProp.id }
       });
       this.$store.dispatch("getVaultById", vaultProp);
-      // debugger;
-      // this.$store.dispatch("getKeepsByVault", vaultProp);
     },
     removeVault(vaultProp) {
       this.$store.dispatch("removeVault", vaultProp.id);

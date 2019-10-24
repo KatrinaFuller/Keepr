@@ -2,7 +2,6 @@
   <div class="keep row">
     <div class="col-3 justify-content-start">
       <div class="card" style="width: 18rem;">
-        <!-- <img class="card-img-top" v-bind:src="`${keep.Img}`" alt="keep image" /> -->
         <img class="img" v-bind:src="keepProp.img" alt="Keep Image" />
         <div class="card-body">
           <p>
@@ -13,7 +12,6 @@
             >x</span>
           </p>
 
-          <!-- <p class="card-text">{{keep.description}} keep description</p> -->
           <button class="btn" @click="saveKeep()">
             <i class="fas fa-save"></i>
           </button>
@@ -52,9 +50,6 @@ export default {
     this.$store.dispatch("getKeeps");
   },
   computed: {
-    // keeps() {
-    //   return this.$store.state.keeps;
-    // },
     vaults() {
       return this.$store.state.vaults;
     }
@@ -72,15 +67,12 @@ export default {
       this.$store.dispatch("removeKeep", keepProp.id);
     },
     saveKeep() {
-      // debugger;
       let payload = {
         keepId: this.keepProp.id,
         vaultId: this.newVaultId,
         keepProp: this.keepProp
       };
-      // this.$store.dispatch("saveKeep", payload);
       this.$store.dispatch("addVaultKeep", payload);
-      // this.$store.dispatch("getVaultKeeps", payload);
     }
   },
   components: {}

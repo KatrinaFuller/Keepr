@@ -12,25 +12,13 @@
             >x</span>
           </p>
 
-          <!-- <p class="card-text">{{keep.description}} keep description</p> -->
           <button class="btn" @click="saveKeep()">
             <i class="fas fa-save"></i>
           </button>
           <button class="btn" @click="viewKeep(vaultkeepProp)">
             <i class="fas fa-eye"></i>
           </button>
-          <div>
-            <!-- dropdown  -->
-            <!-- <select v-model="newVaultId" @change="saveKeep()">
-              <option disabled value>Move keep to:</option>
-              <option
-                v-for="vault in vaults"
-                :key="vault.id"
-                :value="vault.id"
-                :vaultProp="vault"
-              >{{vault.name}}</option>
-            </select>-->
-          </div>
+          <div></div>
         </div>
       </div>
     </div>
