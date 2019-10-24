@@ -61,10 +61,10 @@ namespace Keepr.Services
       return keep;
     }
 
-    public string Delete(int id)
+    public string Delete(int id, string userId)
     {
       Keep exists = _repo.GetKeepByKeepId(id);
-      if (exists == null)
+      if (exists == null || exists.UserId != userId)
       {
         throw new Exception("Invalid Id");
       }
