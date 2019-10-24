@@ -3,12 +3,15 @@
     <div class="col-3 m-2">
       <div class="card shadow" style="width: 18rem;">
         <div class="card-body">
-          <h4 @click="viewVault(vaultProp)">{{vaultProp.name}}</h4>
-          <span
+          <h3 @click="viewVault(vaultProp)">{{vaultProp.name}}</h3>
+          <!-- <span
             class="bg-light text-danger rounded px-1 ml-1 pb-1"
             @click="removeVault(vaultProp)"
-          >x</span>
+          >x</span>-->
           <p class="card-text">{{vaultProp.description}}</p>
+          <button class="btn" @click="removeVault(vaultProp)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
         </div>
       </div>
     </div>
