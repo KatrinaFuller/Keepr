@@ -82,8 +82,12 @@ export default {
 
 
 <style scoped>
-.img {
+/* .img {
   max-height: 30vh;
   max-width: 35vw;
+} */
+.img {
+  width: 100%;
+  height: auto;
 }
 </style>
