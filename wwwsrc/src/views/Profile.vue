@@ -39,12 +39,12 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.dispatch("getKeeps");
+    this.$store.dispatch("getUserKeeps");
     this.$store.dispatch("getVaults");
   },
   computed: {
     keeps() {
-      return this.$store.state.keeps;
+      return this.$store.state.userKeeps;
     },
     vaults() {
       return this.$store.state.vaults;
