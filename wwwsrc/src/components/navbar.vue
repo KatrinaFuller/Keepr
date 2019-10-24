@@ -3,10 +3,11 @@
     <div class="col-12">
       <nav class="navbar">
         <form class="form-inline">
-          <button class="btn" type="button" @click="logoutNav" v-if="user.email">Logout</button>
-          <button class="btn" type="button" @click="loginNav" v-else>Login</button>
+          <button class="btn btn-dark" type="button" @click="logoutNav" v-if="user.email">Logout</button>
+          <button class="btn btn-dark" type="button" @click="loginNav" v-else>Login</button>
+          <h2>Keepr</h2>
           <button
-            class="btn"
+            class="btn btn-dark"
             type="button"
             @click="usernameButton"
             v-if="user.email"

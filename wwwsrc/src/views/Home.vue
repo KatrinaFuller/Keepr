@@ -1,11 +1,11 @@
 <template>
   <div class="home container-fluid">
     <navbar />
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
       <div class="col-2">
         <h1>Keepr</h1>
       </div>
-    </div>
+    </div>-->
     <div class="row">
       <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     </div>

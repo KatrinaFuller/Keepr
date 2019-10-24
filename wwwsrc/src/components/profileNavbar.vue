@@ -1,11 +1,11 @@
 <template>
   <div class="row sticky-top">
     <div class="col-12">
-      <nav class="profileNavbar">
+      <nav class="navbar">
         <form class="form-inline">
-          <button class="btn" type="button" @click="backButton">Back</button>
-          <h3>{{user.username}}'s Dashboard</h3>
-          <button class="btn" type="button" @click="logoutNav">Logout</button>
+          <button class="btn btn-dark" type="button" @click="backButton">Back</button>
+          <h2>{{user.username}}'s Dashboard</h2>
+          <button class="btn btn-dark" type="button" @click="logoutNav">Logout</button>
         </form>
       </nav>
     </div>
