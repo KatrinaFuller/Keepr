@@ -22,14 +22,14 @@ namespace Keepr.Repositories
       return _db.Query<Keep>(sql, new { vaultId, userId });
     }
 
-    public int CreateVaultKeep(int VaultId, int KeepId, string userId)
+    public void CreateVaultKeep(int VaultId, int KeepId, string userId)
     {
       string sql = @"
       INSERT INTO vaultkeeps
       (vaultId, userId, keepId)
       VALUES
       (@VaultId, @UserId, @KeepId)";
-      return _db.ExecuteScalar<int>(sql, new { VaultId, KeepId, userId });
+      _db.Execute(sql, new { VaultId, KeepId, userId });
     }
 
     // public void DeleteVaultKeep(int id)
