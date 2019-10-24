@@ -41,11 +41,11 @@ export default new Vuex.Store({
       state.vaults = vaults
     },
     setActiveVault(state, payload) {
-      debugger
+      // debugger
       state.activeVault = payload
     },
     setVaultKeeps(state, vaultkeeps) {
-      debugger
+      // debugger
       state.vaultkeeps = vaultkeeps
     }
   },

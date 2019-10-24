@@ -80,7 +80,7 @@ export default {
       };
       // this.$store.dispatch("saveKeep", payload);
       this.$store.dispatch("addVaultKeep", payload);
-      this.$store.dispatch("getVaultKeeps", payload);
+      // this.$store.dispatch("getVaultKeeps", payload);
     }
   },
   components: {}
