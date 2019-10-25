@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid bg">
     <div class="row">
       <div class="activeKeep">
         <button class="btn" type="button" @click="backToProfile">Back to Profile</button>
@@ -7,10 +7,10 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <h1>{{keep.name}}</h1>
+        <img class="img" v-bind:src="`${keep.img}`" />
       </div>
       <div class="col-12">
-        <img class="img" v-bind:src="`${keep.img}`" />
+        <h1>{{keep.name}}</h1>
       </div>
       <div class="col-12">
         <h4>{{keep.description}}</h4>
@@ -45,8 +45,15 @@ export default {
 
 
 <style scoped>
-.img {
+.bg {
+  background-color: #e9f4f1;
+  min-height: 100vh;
+}
+.btn {
+  background-color: #96ead7;
+}
+/* .img {
   max-height: 30vh;
   max-width: 35vw;
-}
+} */
 </style>

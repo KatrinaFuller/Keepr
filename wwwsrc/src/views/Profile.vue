@@ -85,7 +85,6 @@ export default {
 .bg {
   background-color: #e9f4f1;
   min-height: 100vh;
-  /* min-width: 100vw; */
 }
 h3 {
   color: #48897a;
