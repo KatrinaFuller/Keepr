@@ -186,6 +186,7 @@ export default new Vuex.Store({
       try {
         let res = await api.delete('/keeps/' + data)
         dispatch('getKeeps')
+        dispatch("getUserKeeps")
       } catch (error) {
         console.error("store.js removeKeep")
       }
