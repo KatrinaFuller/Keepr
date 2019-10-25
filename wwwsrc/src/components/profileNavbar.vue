@@ -3,9 +3,9 @@
     <div class="col-12">
       <nav class="navbar">
         <form class="form-inline">
-          <button class="btn btn-dark" type="button" @click="backButton">Back</button>
+          <button class="btn" type="button" @click="backButton">Back</button>
           <h2>{{user.username}}'s Dashboard</h2>
-          <button class="btn btn-dark" type="button" @click="logoutNav">Logout</button>
+          <button class="btn" type="button" @click="logoutNav">Logout</button>
         </form>
       </nav>
     </div>
@@ -40,9 +40,12 @@ export default {
 <style scoped>
 .sticky-top {
   position: sticky;
-  background-color: wheat;
+  background-color: #b39bc8;
 }
 .form-inline {
   display: contents;
+}
+.btn {
+  background-color: #b3cfda;
 }
 </style>

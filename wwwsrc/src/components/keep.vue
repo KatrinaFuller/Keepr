@@ -26,9 +26,12 @@
           <!-- home page -->
 
           <!-- in a vault -->
-          <button v-else class="btn" @click="removeVaultKeepRelationship()">
-            <p>delete</p>
-            <!-- <i class="fas fa-trash-alt"></i> -->
+          <button
+            v-if="$route.name === 'activeVault'"
+            class="btn"
+            @click="removeVaultKeepRelationship()"
+          >
+            <i class="fas fa-trash-alt"></i>
           </button>
           <div>
             <!-- dropdown  -->
@@ -82,6 +85,7 @@ export default {
       this.$store.dispatch("removeKeep", keepProp.id);
     },
     removeVaultKeepRelationship() {
+      debugger;
       let payload = {
         keepId: this.keepProp.id,
         vaultId: this.$route.params.vaultId

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid bg">
     <div class="profile">
       <profileNavbar />
       <div class="row">
@@ -82,4 +82,9 @@ export default {
 
 
 <style scoped>
+.bg {
+  background-color: #f0ebf4;
+  min-height: 100vh;
+  /* min-width: 100vw; */
+}
 </style>
