@@ -40,12 +40,12 @@ export default {
 <style scoped>
 .sticky-top {
   position: sticky;
-  background-color: #b39bc8;
+  background-color: #f8ebc3;
 }
 .form-inline {
   display: contents;
 }
 .btn {
-  background-color: #b3cfda;
+  background-color: #96ead7;
 }
 </style>

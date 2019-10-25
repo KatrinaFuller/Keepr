@@ -1,5 +1,5 @@
 <template>
-  <div class="home container-fluid">
+  <div class="home container-fluid bg">
     <navbar />
     <!-- <div class="row justify-content-center">
       <div class="col-2">
@@ -42,4 +42,8 @@ export default {
 </script>
 
 <style scoped>
+.bg {
+  background-color: #e9f4f1;
+  min-height: 100vh;
+}
 </style>

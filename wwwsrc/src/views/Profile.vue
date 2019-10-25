@@ -83,8 +83,11 @@ export default {
 
 <style scoped>
 .bg {
-  background-color: #f0ebf4;
+  background-color: #e9f4f1;
   min-height: 100vh;
   /* min-width: 100vw; */
+}
+h3 {
+  color: #48897a;
 }
 </style>
