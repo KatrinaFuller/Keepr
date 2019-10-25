@@ -19,11 +19,13 @@
           <button class="btn" @click="viewKeep(keepProp)">
             <i class="fas fa-eye"></i>
           </button>
-
+          <!-- profile page -->
           <button v-if="$route.name === 'profile'" class="btn" @click="removeKeep(keepProp)">
             <i class="fas fa-trash-alt"></i>
           </button>
+          <!-- home page -->
 
+          <!-- in a vault -->
           <button v-else class="btn" @click="removeVaultKeepRelationship()">
             <p>delete</p>
             <!-- <i class="fas fa-trash-alt"></i> -->
@@ -80,7 +82,6 @@ export default {
       this.$store.dispatch("removeKeep", keepProp.id);
     },
     removeVaultKeepRelationship() {
-      debugger;
       let payload = {
         keepId: this.keepProp.id,
         vaultId: this.$route.params.vaultId
