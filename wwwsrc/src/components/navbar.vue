@@ -5,7 +5,7 @@
         <form class="form-inline">
           <button class="btn" type="button" @click="logoutNav" v-if="user.email">Logout</button>
           <button class="btn" type="button" @click="loginNav" v-else>Login</button>
-          <h2>Keepr</h2>
+          <!-- <h2>Keepr</h2> -->
           <button
             class="btn"
             type="button"
