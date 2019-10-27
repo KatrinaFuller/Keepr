@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid bg">
     <div class="row">
       <div class="activeVault">
-        <button class="btn" type="button" @click="backToProfile">Back to Profile</button>
+        <button class="btn m-2" type="button" @click="backToProfile">Back to Profile</button>
       </div>
     </div>
     <div class="row">
@@ -53,4 +53,14 @@ export default {
 
 
 <style scoped>
+.bg {
+  background-color: #e9f4f1;
+  min-height: 100vh;
+}
+.btn {
+  background-color: #96ead7;
+}
+h1 {
+  color: #48897a;
+}
 </style>

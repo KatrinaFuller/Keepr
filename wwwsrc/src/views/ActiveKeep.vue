@@ -2,7 +2,7 @@
   <div class="container-fluid bg">
     <div class="row">
       <div class="activeKeep">
-        <button class="btn" type="button" @click="backToProfile">Back to Profile</button>
+        <button class="btn m-2" type="button" @click="backToProfile">Back to Profile</button>
       </div>
     </div>
     <div class="row">
@@ -56,4 +56,10 @@ export default {
   max-height: 30vh;
   max-width: 35vw;
 } */
+.img {
+  max-width: 60%;
+}
+h1 {
+  color: #48897a;
+}
 </style>
