@@ -48,4 +48,7 @@ export default {
 .btn {
   background-color: #96ead7;
 }
+h2 {
+  font-family: "ZCOOL XiaoWei", serif;
+}
 </style>

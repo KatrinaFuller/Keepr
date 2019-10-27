@@ -46,4 +46,7 @@ export default {
   background-color: #e9f4f1;
   min-height: 100vh;
 }
+h1 {
+  font-family: "ZCOOL XiaoWei", serif;
+}
 </style>
