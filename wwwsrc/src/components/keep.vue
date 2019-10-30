@@ -13,10 +13,16 @@
             >x</span>-->
           </p>
 
-          <button class="btn" type="button" data-toggle="collapse" data-target="#collapseSave">
+          <button
+            v-if="user.username"
+            class="btn"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseSave"
+          >
             <i class="fas fa-save"></i>
           </button>
-          <button class="btn" @click="viewKeep(keepProp)">
+          <button v-if="user.username" class="btn" @click="viewKeep(keepProp)">
             <i class="fas fa-eye"></i>
           </button>
           <!-- profile page -->
@@ -69,6 +75,9 @@ export default {
   computed: {
     vaults() {
       return this.$store.state.vaults;
+    },
+    user() {
+      return this.$store.state.user;
     }
   },
   methods: {
@@ -116,4 +125,10 @@ export default {
   width: 100%;
   height: auto;
 }
+/* .card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+} */
 </style>
