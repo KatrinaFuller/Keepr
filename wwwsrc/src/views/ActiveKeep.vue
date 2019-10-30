@@ -2,7 +2,7 @@
   <div class="container-fluid bg">
     <div class="row">
       <div class="activeKeep">
-        <button class="btn m-2" type="button" @click="backToProfile">Back to Profile</button>
+        <button class="btn m-2" type="button" @click="backButton">Back</button>
       </div>
     </div>
     <div class="row">
@@ -35,8 +35,8 @@ export default {
     }
   },
   methods: {
-    backToProfile() {
-      this.$store.dispatch("backToProfile");
+    backButton() {
+      this.$store.dispatch("backButton");
     }
   },
   components: {}

@@ -104,11 +104,13 @@ export default new Vuex.Store({
       router.push({ name: "profile" })
     },
     backButton() {
-      router.push({ name: "home" })
+      // router.push({ name: "home" })
+      router.go(-1)
     },
-    backToProfile() {
-      router.push({ name: "profile" })
-    },
+    // backToProfile() {
+    //   // router.push({ name: "profile" })
+    //   router.go(-1)
+    // },
 
     getKeeps({ commit }) {
       api.get('keeps')
