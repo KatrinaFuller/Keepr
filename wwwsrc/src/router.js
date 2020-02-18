@@ -27,6 +27,13 @@ export default new Router({
       }
     },
     {
+      path: '/vaults',
+      name: 'vaultsView',
+      component: function () {
+        return import(/* webpackChunkName: "profile" */ './views/Vaults.vue')
+      }
+    },
+    {
       path: '/keeps/:keepId',
       name: 'activeKeep',
       component: function () {

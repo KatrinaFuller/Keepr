@@ -7,7 +7,21 @@
             <i class="material-icons" @click="backButton">arrow_back</i>
           </md-button>
           <h2>{{user.username}}'s Dashboard</h2>
-          <button class="btn" type="button" @click="logoutNav">Logout</button>
+          <!-- <button class="btn" type="button" @click="logoutNav">Logout</button> -->
+          <md-menu md-size="medium" md-align-trigger>
+            <md-button md-menu-trigger class="md-icon-button md-raised">
+              <i class="material-icons">person</i>
+            </md-button>
+
+            <md-menu-content>
+              <md-menu-item>
+                <md-button @click="vaultsView">My Vaults</md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button @click="logoutNav">Logout</md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
         </form>
       </nav>
     </div>
@@ -27,6 +41,9 @@ export default {
     }
   },
   methods: {
+    vaultsView() {
+      this.$store.dispatch("vaultsView");
+    },
     logoutNav() {
       this.$store.dispatch("logoutNav");
     },
