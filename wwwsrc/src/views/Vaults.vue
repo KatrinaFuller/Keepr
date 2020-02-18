@@ -1,19 +1,43 @@
 <template>
-  <div class="vaults">
-    <h1>this is the vaults page</h1>
+  <div class="container-fluid">
+    <div class="vaults">
+      <vaultsNavbar />
+      <div class="col-12">
+        <h3>Vaults</h3>
+      </div>
+      <vault v-for="vault in vaults" :key="vault.vaults" :vaultProp="vault" />
+    </div>
   </div>
 </template>
 
 
 <script>
+import router from "@/router.js";
+import keep from "../components/keep";
+import vaultsList from "../components/vaultsList";
+import vault from "../components/vault";
+import vaultsNavbar from "../components/vaultsNavbar";
+
 export default {
   name: "vaults",
   data() {
     return {};
   },
-  computed: {},
+  mounted() {
+    this.$store.dispatch("getVaults");
+  },
+  computed: {
+    vaults() {
+      return this.$store.state.vaults;
+    }
+  },
   methods: {},
-  components: {}
+  components: {
+    keep,
+    vault,
+    vaultsList,
+    vaultsNavbar
+  }
 };
 </script>
 

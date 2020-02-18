@@ -22,21 +22,12 @@
         </div>
       </div>
       <div class="row">
-        <!-- <div class="col-3"> -->
         <div class="col-12">
           <h3>Keeps</h3>
         </div>
         <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
-        <!-- </div> -->
       </div>
-      <div class="row">
-        <!-- <div class="col-6"> -->
-        <div class="col-12">
-          <h3>Vaults</h3>
-        </div>
-        <vault v-for="vault in vaults" :key="vault.vaults" :vaultProp="vault" />
-        <!-- </div> -->
-      </div>
+      <div class="row"></div>
     </div>
   </div>
 </template>
@@ -62,7 +53,7 @@ export default {
   }),
   mounted() {
     this.$store.dispatch("getUserKeeps");
-    this.$store.dispatch("getVaults");
+    // this.$store.dispatch("getVaults");
   },
   computed: {
     keeps() {
