@@ -57,9 +57,13 @@ export default {
 <style scoped>
 .sticky-top {
   position: sticky;
-  background-color: #f8ebc3;
+  background-color: #7ddc1f;
 }
 .form-inline {
   display: contents;
+}
+h2 {
+  /* font-family: "ZCOOL XiaoWei", serif; */
+  color: #2c2f33;
 }
 </style>

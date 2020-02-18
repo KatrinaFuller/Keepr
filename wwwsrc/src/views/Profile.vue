@@ -53,7 +53,7 @@ export default {
   }),
   mounted() {
     this.$store.dispatch("getUserKeeps");
-    // this.$store.dispatch("getVaults");
+    this.$store.dispatch("getVaults");
   },
   computed: {
     keeps() {
@@ -78,10 +78,10 @@ export default {
 
 <style scoped>
 .bg {
-  background-color: #e9f4f1;
+  background-color: #f5f5f5;
   min-height: 100vh;
 }
 h3 {
-  color: #48897a;
+  color: #2c2f33;
 }
 </style>

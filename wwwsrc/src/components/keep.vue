@@ -135,6 +135,7 @@ export default {
   width: 100%;
   height: auto;
   display: block;
+  margin-top: 15px;
 }
 
 /* .card:hover {
@@ -151,12 +152,12 @@ export default {
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1;
-  width: 100%;
+  width: 89.5%;
   transition: 0.5s ease;
   opacity: 0;
   color: white;
   font-size: 20px;
-  padding: 20px;
+  padding: 2px;
   text-align: center;
 }
 

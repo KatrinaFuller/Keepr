@@ -7,7 +7,6 @@
             <i class="material-icons" @click="backButton">arrow_back</i>
           </md-button>
           <h2>{{user.username}}'s Dashboard</h2>
-          <!-- <button class="btn" type="button" @click="logoutNav">Logout</button> -->
           <md-menu md-size="medium" md-align-trigger>
             <md-button md-menu-trigger class="md-icon-button md-raised">
               <i class="material-icons">person</i>
@@ -59,7 +58,7 @@ export default {
 <style scoped>
 .sticky-top {
   position: sticky;
-  background-color: #f8ebc3;
+  background-color: #7ddc1f;
 }
 .form-inline {
   display: contents;
@@ -68,6 +67,7 @@ export default {
   background-color: #96ead7;
 }
 h2 {
-  font-family: "ZCOOL XiaoWei", serif;
+  /* font-family: "ZCOOL XiaoWei", serif; */
+  color: #2c2f33;
 }
 </style>

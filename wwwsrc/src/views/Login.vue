@@ -60,15 +60,15 @@ export default {
 
 <style scoped>
 .bg {
-  background-color: #e9f4f1;
+  background-color: #f5f5f5;
   min-height: 100vh;
 }
 h1 {
   font-family: "ZCOOL XiaoWei", serif;
   font-size: 9.5rem;
-  color: #48897a;
+  color: #2c2f33;
 }
 .btn {
-  background-color: #96ead7;
+  background-color: #7ddc1f;
 }
 </style>

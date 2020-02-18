@@ -43,4 +43,11 @@ export default {
 
 
 <style scoped>
+.bg {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+h3 {
+  color: #2c2f33;
+}
 </style>
