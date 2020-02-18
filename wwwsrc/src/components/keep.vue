@@ -3,7 +3,7 @@
     <div class="col-3">
       <!-- <div class="card shadow m-2 container" style="width: 18rem;"> -->
       <div class="container" style="width: 18rem;">
-        <img class="img" v-bind:src="keepProp.img" alt="Keep Image" />
+        <img class="img" v-bind:src="keepProp.img" alt="Keep Image" @click="viewKeep(keepProp)" />
         <div class="overlay">
           <p>{{keepProp.name}}</p>
 
@@ -14,16 +14,18 @@
             data-toggle="collapse"
             data-target="#collapseSave"
           >
-            <i class="fas fa-save"></i>
+            <!-- <i class="fas fa-save"></i> -->
+            <i class="material-icons">save</i>
           </button>
 
-          <button v-if="user.username" class="btn" @click="viewKeep(keepProp)">
+          <!-- <button v-if="user.username" class="btn" @click="viewKeep(keepProp)">
             <i class="fas fa-eye"></i>
-          </button>
+          </button>-->
 
           <!-- profile page -->
           <button v-if="$route.name === 'profile'" class="btn" @click="removeKeep(keepProp)">
-            <i class="fas fa-trash-alt"></i>
+            <!-- <i class="fas fa-trash-alt"></i> -->
+            <i class="material-icons">delete</i>
           </button>
           <!-- home page -->
 
@@ -33,7 +35,8 @@
             class="btn"
             @click="removeVaultKeepRelationship()"
           >
-            <i class="fas fa-trash-alt"></i>
+            <!-- <i class="fas fa-trash-alt"></i> -->
+            <i class="material-icons">delete</i>
           </button>
           <div>
             <!-- dropdown  -->
@@ -110,6 +113,10 @@ export default {
 
 
 <style scoped>
+.material-icons {
+  color: white;
+}
+
 .fas {
   color: white;
 }
