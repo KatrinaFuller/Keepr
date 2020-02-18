@@ -3,15 +3,23 @@
     <div class="col-12">
       <nav class="navbar">
         <form class="form-inline">
-          <button class="btn" type="button" @click="logoutNav" v-if="user.email">Logout</button>
-          <button class="btn" type="button" @click="loginNav" v-else>Login</button>
-          <!-- <h2>Keepr</h2> -->
-          <button
-            class="btn"
-            type="button"
-            @click="usernameButton"
-            v-if="user.email"
-          >Hello, {{user.username}}</button>
+          <h2>Keepr</h2>
+
+          <md-menu md-size="medium" md-align-trigger>
+            <md-button md-menu-trigger class="md-icon-button md-raised">
+              <i class="material-icons">person</i>
+            </md-button>
+
+            <md-menu-content>
+              <md-menu-item>
+                <md-button @click="usernameButton" v-if="user.email">My Dashboard</md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button @click="logoutNav" v-if="user.email">Logout</md-button>
+                <md-button @click="loginNav" v-else>Login</md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
         </form>
       </nav>
     </div>
@@ -53,8 +61,5 @@ export default {
 }
 .form-inline {
   display: contents;
-}
-.btn {
-  background-color: #96ead7;
 }
 </style>

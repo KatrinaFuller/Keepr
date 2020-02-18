@@ -1,14 +1,12 @@
 import Vue from 'vue'
-import { MdButton, MdCard } from 'vue-material/dist/components'
+import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import AuthService from "./AuthService"
 
-Vue.use(MdButton)
-Vue.use(MdCard)
+Vue.use(VueMaterial)
 
 //Vue.config.productionTip = false
 
