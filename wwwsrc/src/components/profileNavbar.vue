@@ -3,7 +3,9 @@
     <div class="col-12">
       <nav class="navbar">
         <form class="form-inline">
-          <button class="btn" type="button" @click="backButton">Back</button>
+          <md-button class="md-icon-button">
+            <i class="material-icons" @click="backButton">arrow_back</i>
+          </md-button>
           <h2>{{user.username}}'s Dashboard</h2>
           <button class="btn" type="button" @click="logoutNav">Logout</button>
         </form>

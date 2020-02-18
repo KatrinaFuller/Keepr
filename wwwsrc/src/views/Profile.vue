@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="row">
-        <!-- add keep or add vault -->
+        <!-- add keep or add vaults -->
         <div class="collapse" id="collapseAdd">
           <button class="btn m-1" data-toggle="modal" data-target="#add-keep-modal">Add Keep</button>
         </div>
@@ -56,6 +56,10 @@ export default {
   data() {
     return {};
   },
+  data: () => ({
+    active: false,
+    value: null
+  }),
   mounted() {
     this.$store.dispatch("getUserKeeps");
     this.$store.dispatch("getVaults");

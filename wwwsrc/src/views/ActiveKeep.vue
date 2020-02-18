@@ -2,7 +2,9 @@
   <div class="container-fluid bg">
     <div class="row">
       <div class="activeKeep">
-        <button class="btn m-2" type="button" @click="backButton">Back</button>
+        <md-button class="md-icon-button">
+          <i class="material-icons" @click="backButton">arrow_back</i>
+        </md-button>
       </div>
     </div>
     <div class="row">
