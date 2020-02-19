@@ -8,7 +8,7 @@
           <i class="fas fa-plus"></i>
         </button>
       </div>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>Vaults</h3>
         </div>
