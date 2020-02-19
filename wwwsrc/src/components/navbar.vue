@@ -12,7 +12,10 @@
 
             <md-menu-content>
               <md-menu-item>
-                <md-button @click="usernameButton" v-if="user.email">My Dashboard</md-button>
+                <md-button @click="usernameButton" v-if="user.email">My Keeps</md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button @click="vaultsView" v-if="user.email">My Vaults</md-button>
               </md-menu-item>
               <md-menu-item>
                 <md-button @click="logoutNav" v-if="user.email">Logout</md-button>
@@ -47,6 +50,9 @@ export default {
     },
     usernameButton() {
       this.$store.dispatch("usernameButton");
+    },
+    vaultsView() {
+      this.$store.dispatch("vaultsView");
     }
   },
   components: {}

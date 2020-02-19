@@ -57,10 +57,7 @@ export default {
   background-color: #f5f5f5;
   min-height: 100vh;
 }
-.btn {
-  background-color: #96ead7;
-}
 h1 {
-  color: #48897a;
+  color: #7ddc1f;
 }
 </style>
