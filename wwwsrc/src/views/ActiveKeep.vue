@@ -48,12 +48,12 @@ export default {
 
 <style scoped>
 .bg {
-  background-color: #e9f4f1;
+  background-color: #f5f5f5;
   min-height: 100vh;
 }
-.btn {
+/* .btn {
   background-color: #96ead7;
-}
+} */
 /* .img {
   max-height: 30vh;
   max-width: 35vw;

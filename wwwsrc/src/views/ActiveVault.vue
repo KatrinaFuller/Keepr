@@ -14,9 +14,7 @@
       </div>
     </div>
     <div class="row">
-      <!-- <div class="col-3"> -->
       <keep v-for="keep in vaultkeeps" :keepProp="keep" :key="keep.id" />
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -56,7 +54,7 @@ export default {
 
 <style scoped>
 .bg {
-  background-color: #e9f4f1;
+  background-color: #f5f5f5;
   min-height: 100vh;
 }
 .btn {
