@@ -3,9 +3,9 @@
     <div class="col-12">
       <nav class="navbar">
         <form class="form-inline">
-          <md-button class="md-icon-button">
-            <i class="material-icons" @click="backButton">arrow_back</i>
-          </md-button>
+          <button class="btn">
+            <h4 @click="home">Keepr</h4>
+          </button>
           <h2>{{user.username}}'s Dashboard</h2>
           <md-menu md-size="medium" md-align-trigger>
             <md-button md-menu-trigger class="md-icon-button md-raised">
@@ -46,8 +46,8 @@ export default {
     logoutNav() {
       this.$store.dispatch("logoutNav");
     },
-    backButton() {
-      this.$store.dispatch("backButton");
+    home() {
+      this.$store.dispatch("home");
     }
   },
   components: {}
@@ -62,9 +62,6 @@ export default {
 }
 .form-inline {
   display: contents;
-}
-.btn {
-  background-color: #96ead7;
 }
 h2 {
   /* font-family: "ZCOOL XiaoWei", serif; */

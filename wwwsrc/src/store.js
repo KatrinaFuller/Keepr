@@ -110,6 +110,9 @@ export default new Vuex.Store({
     vaultsView() {
       router.push({ name: "vaultsView" })
     },
+    home() {
+      router.push({ name: "home" })
+    },
     // backToProfile() {
     //   // router.push({ name: "profile" })
     //   router.go(-1)
