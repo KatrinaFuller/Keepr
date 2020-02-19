@@ -9,7 +9,7 @@
         </button>
       </div>
 
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>Keeps</h3>
         </div>

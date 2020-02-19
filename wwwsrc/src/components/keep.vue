@@ -1,8 +1,8 @@
 <template>
   <div class="keep row">
     <div class="col-3">
-      <!-- <div class="card shadow m-2 container" style="width: 18rem;"> -->
-      <div class="container" style="width: 18rem;">
+      <div class="card shadow m-2" style="width: 18rem;">
+        <!-- <div class="card" style="width: 18rem;">
         <md-card>
           <md-card-media>
             <md-ripple>
@@ -21,15 +21,15 @@
                 <md-icon>save</md-icon>
               </md-button>
               <md-menu-content>
-                <md-list>
-                  <md-list-item
+                <md-select v-model="newVaultId">
+                  <md-option
                     v-for="vault in vaults"
                     :key="vault.id"
                     :value="vault.id"
                     :vaultProp="vault"
-                    @click="saveKeep(vaultProp)"
-                  >{{vault.name}}</md-list-item>
-                </md-list>
+                    @click="saveKeep()"
+                  >{{vault.name}}</md-option>
+                </md-select>
               </md-menu-content>
             </md-menu>
 
@@ -45,63 +45,55 @@
               <md-icon>delete</md-icon>
             </md-button>
           </md-card-actions>
-        </md-card>
+        </md-card>-->
 
-        <!-- <img
+        <img
           class="img shadow"
           v-bind:src="keepProp.img"
           alt="Keep Image"
           @click="viewKeep(keepProp)"
-        />-->
-        <!-- <div class="overlay"> -->
-        <!-- <p>{{keepProp.name}}</p> -->
+        />
 
-        <!-- <button
+        <span>
+          <button
             v-if="user.username"
             class="btn"
             type="button"
             data-toggle="collapse"
             data-target="#collapseSave"
           >
-            <i class="fas fa-save"></i>
             <i class="material-icons">save</i>
-        </button>-->
+          </button>
 
-        <!-- <button v-if="user.username" class="btn" @click="viewKeep(keepProp)">
-            <i class="fas fa-eye"></i>
-        </button>-->
+          <!-- profile page -->
+          <button v-if="$route.name === 'profile'" class="btn" @click="removeKeep(keepProp)">
+            <i class="material-icons">delete</i>
+          </button>
 
-        <!-- profile page -->
-        <!-- <button v-if="$route.name === 'profile'" class="btn" @click="removeKeep(keepProp)">
-          <i class="fas fa-trash-alt"></i>
-          <i class="material-icons">delete</i>
-        </button>-->
-        <!-- home page -->
-
-        <!-- in a vault -->
-        <!-- <button
-          v-if="$route.name === 'activeVault'"
-          class="btn"
-          @click="removeVaultKeepRelationship()"
-        >
-          <i class="fas fa-trash-alt"></i>
-          <i class="material-icons">delete</i>
-        </button>
-        <div>-->
-        <!-- dropdown  -->
-        <!-- <div class="collapse" id="collapseSave">
-              <select v-model="newVaultId" @change="saveKeep()">
-                <option disabled value>Move keep to:</option>
-                <option
-                  v-for="vault in vaults"
-                  :key="vault.id"
-                  :value="vault.id"
-                  :vaultProp="vault"
-                >{{vault.name}}</option>
-              </select>
-        </div>-->
+          <!-- in a vault -->
+          <button
+            v-if="$route.name === 'activeVault'"
+            class="btn"
+            @click="removeVaultKeepRelationship()"
+          >
+            <i class="material-icons">delete</i>
+          </button>
+        </span>
+        <div>
+          <!-- dropdown  -->
+          <div class="collapse" id="collapseSave">
+            <select v-model="newVaultId" @change="saveKeep()">
+              <option disabled value>Move keep to:</option>
+              <option
+                v-for="vault in vaults"
+                :key="vault.id"
+                :value="vault.id"
+                :vaultProp="vault"
+              >{{vault.name}}</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -136,7 +128,6 @@ export default {
       });
       this.$store.dispatch("getKeepById", keepProp);
     },
-    saveKeep(keep) {},
     removeKeep(keepProp) {
       this.$store.dispatch("removeKeep", keepProp.id);
     },
@@ -147,7 +138,7 @@ export default {
       };
       this.$store.dispatch("removeVaultKeepRelationship", payload);
     },
-    saveKeep(vaultProp) {
+    saveKeep() {
       let payload = {
         keepId: this.keepProp.id,
         vaultId: this.newVaultId,
@@ -163,55 +154,17 @@ export default {
 
 <style scoped>
 .material-icons {
-  color: white;
+  color: black;
 }
-
-.fas {
-  color: white;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  position: relative;
-  width: 50%;
-  max-width: 300px;
-}
-
 .img {
   width: 100%;
-  height: auto;
+  height: 16rem;
   display: block;
-  margin-top: 15px;
 }
-
-/* .card:hover {
+.card:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
     -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
   cursor: pointer;
-} */
-
-/* The overlay effect - lays on top of the container and over the image */
-.overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1;
-  width: 89.5%;
-  transition: 0.5s ease;
-  opacity: 0;
-  color: white;
-  font-size: 20px;
-  padding: 2px;
-  text-align: center;
-}
-
-/* When you mouse over the container, fade in the overlay title */
-.container:hover .overlay {
-  opacity: 1;
 }
 </style>

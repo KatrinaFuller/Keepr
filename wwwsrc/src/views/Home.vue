@@ -1,7 +1,7 @@
 <template>
   <div class="home container-fluid bg">
     <navbar />
-    <div class="row">
+    <div class="row justify-content-center">
       <keep v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     </div>
     <!-- <h1>Welcome Home {{user.username}}</h1>
