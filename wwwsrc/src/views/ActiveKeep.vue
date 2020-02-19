@@ -7,7 +7,7 @@
         </md-button>
       </div>
     </div>
-    <div class="row">
+    <div class="row align-items-center">
       <div class="col-12">
         <img class="img" v-bind:src="`${keep.img}`" />
       </div>
@@ -17,9 +17,6 @@
       <div class="col-12">
         <h4>{{keep.description}}</h4>
       </div>
-    </div>
-    <div class="row">
-      <div class="col"></div>
     </div>
   </div>
 </template>
@@ -51,17 +48,14 @@ export default {
   background-color: #f5f5f5;
   min-height: 100vh;
 }
-/* .btn {
-  background-color: #96ead7;
-} */
-/* .img {
-  max-height: 30vh;
-  max-width: 35vw;
-} */
+.img {
+  max-height: 28rem;
+  max-width: 28rem;
+}
 .img {
   max-width: 60%;
 }
 h1 {
-  color: #48897a;
+  color: #7ddc1f;
 }
 </style>
