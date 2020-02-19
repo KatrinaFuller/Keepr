@@ -33,10 +33,10 @@ export default {
   data() {
     return {};
   },
-  data: () => ({
-    active: false,
-    value: null
-  }),
+  // data: () => ({
+  //   active: false,
+  //   value: null
+  // }),
   mounted() {
     this.$store.dispatch("getUserKeeps");
     this.$store.dispatch("getVaults");
