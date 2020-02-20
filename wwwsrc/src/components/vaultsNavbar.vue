@@ -13,12 +13,8 @@
             </md-button>
 
             <md-menu-content>
-              <md-menu-item>
-                <md-button @click="profile">My Keeps</md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button @click="logoutNav">Logout</md-button>
-              </md-menu-item>
+              <md-menu-item @click="profile">My Keeps</md-menu-item>
+              <md-menu-item @click="logoutNav">Logout</md-menu-item>
             </md-menu-content>
           </md-menu>
         </form>

@@ -2,51 +2,6 @@
   <div class="keep row">
     <div class="col-3">
       <div class="card shadow m-2" style="width: 18rem;">
-        <!-- <div class="card" style="width: 18rem;">
-        <md-card>
-          <md-card-media>
-            <md-ripple>
-              <img
-                class="img shadow"
-                v-bind:src="keepProp.img"
-                alt="Keep Image"
-                @click="viewKeep(keepProp)"
-              />
-            </md-ripple>
-          </md-card-media>
-
-          <md-card-actions>
-            <md-menu md-align-trigger>
-              <md-button md-menu-trigger class="md-icon-button" v-if="user.username">
-                <md-icon>save</md-icon>
-              </md-button>
-              <md-menu-content>
-                <md-select v-model="newVaultId">
-                  <md-option
-                    v-for="vault in vaults"
-                    :key="vault.id"
-                    :value="vault.id"
-                    :vaultProp="vault"
-                    @click="saveKeep()"
-                  >{{vault.name}}</md-option>
-                </md-select>
-              </md-menu-content>
-            </md-menu>
-
-            <md-button class="btn" v-if="$route.name === 'profile'" @click="removeKeep(keepProp)">
-              <md-icon>delete</md-icon>
-            </md-button>
-
-            <md-button
-              class="btn"
-              v-if="$route.name === 'activeVault'"
-              @click="removeVaultKeepRelationship()"
-            >
-              <md-icon>delete</md-icon>
-            </md-button>
-          </md-card-actions>
-        </md-card>-->
-
         <img
           class="img shadow"
           v-bind:src="keepProp.img"
@@ -60,7 +15,8 @@
             class="btn"
             type="button"
             data-toggle="collapse"
-            data-target="#collapseSave"
+            v-bind:data-target="`#save${id}`"
+            :id="`saveButton${id}`"
           >
             <i class="material-icons">save</i>
           </button>
@@ -81,7 +37,7 @@
         </span>
         <div>
           <!-- dropdown  -->
-          <div class="collapse" id="collapseSave">
+          <div class="collapse" v-bind:id="`save${id}`">
             <select v-model="newVaultId" @change="saveKeep()">
               <option disabled value>Move keep to:</option>
               <option
@@ -105,12 +61,14 @@ export default {
   props: ["keepProp", "vaultProp"],
   data() {
     return {
-      newVaultId: ""
+      newVaultId: "",
+      id: null
     };
   },
   mounted() {
     this.$store.dispatch("getKeeps");
     this.$store.dispatch("getVaults");
+    this.id = this._uid;
   },
   computed: {
     vaults() {
@@ -145,6 +103,8 @@ export default {
         keepProp: this.keepProp
       };
       this.$store.dispatch("addVaultKeep", payload);
+      const dropdrown = document.getElementById(`save${this.id}`);
+      dropdrown.classList.remove("show");
     }
   },
   components: {}

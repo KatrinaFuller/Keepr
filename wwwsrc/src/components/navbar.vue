@@ -11,16 +11,10 @@
             </md-button>
 
             <md-menu-content>
-              <md-menu-item>
-                <md-button @click="usernameButton" v-if="user.email">My Keeps</md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button @click="vaultsView" v-if="user.email">My Vaults</md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button @click="logoutNav" v-if="user.email">Logout</md-button>
-                <md-button @click="loginNav" v-else>Login</md-button>
-              </md-menu-item>
+              <md-menu-item @click="usernameButton" v-if="user.email">My Keeps</md-menu-item>
+              <md-menu-item @click="vaultsView" v-if="user.email">My Vaults</md-menu-item>
+              <md-menu-item @click="logoutNav" v-if="user.email">Logout</md-menu-item>
+              <md-menu-item @click="loginNav" v-else>Login</md-menu-item>
             </md-menu-content>
           </md-menu>
         </form>
