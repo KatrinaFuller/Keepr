@@ -56,6 +56,6 @@ export default {
   max-width: 60%;
 }
 h1 {
-  color: #7ddc1f;
+  color: #d54c52;
 }
 </style>

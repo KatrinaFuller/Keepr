@@ -88,6 +88,6 @@ h1 {
   color: #2c2f33;
 }
 .md-button.md-theme-default.md-raised:not([disabled]) {
-  background-color: #7ddc1f;
+  background-color: #d54c52;
 }
 </style>

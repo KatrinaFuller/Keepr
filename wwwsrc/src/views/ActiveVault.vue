@@ -58,6 +58,6 @@ export default {
   min-height: 100vh;
 }
 h1 {
-  color: #7ddc1f;
+  color: #d54c52;
 }
 </style>
