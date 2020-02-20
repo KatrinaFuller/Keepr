@@ -5,21 +5,40 @@
         <h1 class="my-5">Keepr</h1>
       </div>
     </div>
-    <div class="login my-3">
-      <form v-if="loginForm" @submit.prevent="loginUser">
-        <input class="m-1" type="email" v-model="creds.email" placeholder="email" />
-        <input class="m-1" type="password" v-model="creds.password" placeholder="password" />
-        <button class="btn m-2" type="submit">Login</button>
-      </form>
-      <form v-else @submit.prevent="register">
-        <input class="m-1" type="text" v-model="newUser.username" placeholder="name" />
-        <input class="m-1" type="email" v-model="newUser.email" placeholder="email" />
-        <input class="m-1" type="password" v-model="newUser.password" placeholder="password" />
-        <button class="btn m-2" type="submit">Create Account</button>
-      </form>
-      <div @click="loginForm = !loginForm">
-        <p v-if="loginForm">No account Click to Register</p>
-        <p v-else>Already have an account click to Login</p>
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <div v-if="loginForm" @submit.prevent="loginUser">
+          <md-field>
+            <label>Email</label>
+            <md-input type="email" v-model="creds.email"></md-input>
+          </md-field>
+          <md-field>
+            <label>Password</label>
+            <md-input type="password" v-model="creds.password"></md-input>
+          </md-field>
+          <md-button class="md-raised button-color" type="submit" @click="loginUser">Login</md-button>
+        </div>
+
+        <div v-else @submit.prevent="register">
+          <md-field>
+            <label>Name</label>
+            <md-input type="text" v-model="newUser.username"></md-input>
+          </md-field>
+          <md-field>
+            <label>Email</label>
+            <md-input type="email" v-model="newUser.email"></md-input>
+          </md-field>
+          <md-field>
+            <label>Password</label>
+            <md-input type="password" v-model="newUser.password"></md-input>
+          </md-field>
+          <md-button class="md-raised button-color" type="submit" @click="register">Create Account</md-button>
+        </div>
+
+        <div @click="loginForm = !loginForm">
+          <p v-if="loginForm">No account? Click to Register</p>
+          <p v-else>Already have an account? Click to Login</p>
+        </div>
       </div>
     </div>
   </div>
@@ -68,7 +87,7 @@ h1 {
   font-size: 9.5rem;
   color: #2c2f33;
 }
-.btn {
+.md-button.md-theme-default.md-raised:not([disabled]) {
   background-color: #7ddc1f;
 }
 </style>
